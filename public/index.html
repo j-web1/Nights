@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="./output.css" />
     <noscript><link rel="stylesheet" href="./output.css" /></noscript>
     <link rel="canonical" href="https://www.opulanights.com" />
-
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
     <!-- Image Block-->
     <script>
       // Disable right-click
@@ -58,580 +58,987 @@
       }
     </style>
     <!-- Image Block Ends-->
+     <style>
+  @keyframes text-glow {
+    0%, 100% { text-shadow: 0 0 10px #f0f, 0 0 20px #f0f; }
+    50% { text-shadow: 0 0 20px #0ff, 0 0 40px #0ff; }
+  }
+  .animate-text-glow {
+    animation: text-glow 4s ease-in-out infinite alternate;
+  }
+</style>
   </head>
   <body class="bg-gradient-to-br from-[#2B0033] to-black text-[#FFF8F4] select-none">
-    <!-- Navbar centered with logo and nav links -->
-    <header class="sticky top-0 z-50 flex flex-col items-center justify-center px-6 py-4">
-      <div class="mb-4 flex items-center gap-4">
-        <!-- Logo with blur background and hover pulse-->
-        <div class="hover:pulse flex h-16 w-14 items-center justify-center rounded-full bg-purple-700/50 shadow-md backdrop-blur-md">
-          <a href="/">
-            <img alt="Opula Nights Escort Logo" class="h-20 w-20 rounded-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/logo-2.png" />
-          </a>
+    <header 
+  class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-lg shadow-xl ring-1 ring-white/10" 
+  x-data="{ open: false }"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-extrabold bg-gradient-to-r from-fuchsia-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-text-glow focus:outline-none focus:ring-2 focus:ring-pink-500">
+      Opula<span class="text-white">Nights</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-6" aria-label="Main navigation">
+      <a href="#home" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 backdrop-blur-sm rounded-full hover:text-pink-400 transition shadow-pink-500/20 shadow-md focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Home
+      </a>
+      <a href="#profiles" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Companions
+      </a>
+      <a href="#FAQ" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        FAQ
+      </a>
+      <a href="#contact" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Contact
+      </a>
+    </nav>
+
+    <!-- CTA Button -->
+    <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0" class="hidden md:inline-block rounded-full bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 text-md font-semibold shadow-xl focus:outline-none focus:ring-2 focus:ring-white">
+      🔥 Book Now
+    </a>
+
+    <!-- Hamburger -->
+        <button @click="open = !open" class="text-pink-500 focus:outline-none md:hidden" aria-label="Open menu">
+          <span class="sr-only">Open menu</span>
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <!-- Mobile Menu Fixed + Z-index + Shadow -->
+        <div x-show="open" x-transition class="fixed top-[80px] right-4 left-4 z-[9999] space-y-5 rounded-2xl border border-white/10 bg-[#111]/95 p-6 text-center text-white shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
+          <a href="/" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">About</a>
+          <a href="#profiles" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">Profiles</a>
+          <a href="/" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">Flow</a>
+          <a href="#FAQ" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">FAQ</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+urfijaved.in+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0" @click="open = false" class="mt-4 inline-block rounded-full bg-pink-600 px-6 py-2 text-white shadow-lg transition hover:bg-pink-700"> ✦ Book Now </a>
         </div>
-        <!-- Nav Bar -->
-        <nav class="rounded-full bg-white/10 px-6 py-2 shadow-md backdrop-blur-md">
-          <ul class="flex gap-6 text-sm">
-            <li><a class="font-bold text-pink-500" href="/">Home</a></li>
-            <li>
-              <a class="hover:text-pink-400" href="#">All Cities</a>
-            </li>
-            <li><a class="hover:text-pink-400" href="#">About</a></li>
-            <li><a class="hover:text-pink-400" href="#">Contact</a></li>
-          </ul>
-        </nav>
-      </div>
+  </nav>
     </header>
-    <!-- Hero Section -->
-    <section class="relative flex h-screen items-center justify-center px-6 text-center" id="new home">
-      <!-- Mobile Background -->
-      <div
-        class="absolute inset-0 rounded-4xl bg-cover bg-fixed bg-center select-none sm:hidden"
-        class="h-full w-full object-cover select-none"
-        fetchpriority="high"
-        oncontextmenu="return false"
-        draggable="false"
-        style='
-          background-image: url("Images/aT4nfvTZlRQbPCG7fxUUu39eXkQSvJgqCd2XbPIo.jpg");
-        '
-      ></div>
-      <!-- Dekstop Background -->
-      <div
-        class="absolute inset-0 hidden rounded-4xl bg-cover bg-fixed bg-center select-none sm:block"
-        class="h-full w-full object-cover select-none"
-        fetchpriority="high"
-        oncontextmenu="return false"
-        draggable="false"
-        style='
-          background-image: url("Images/photo_2024-11-27_14-04-47.jpg");
-        '
-      ></div>
-      <div class="relative z-10 max-w-3xl">
-        <h1 class="mb-6 text-5xl leading-tight font-extrabold text-orange-100 md:text-6xl">Elite <span class="text-[#CE0058]">Bangalore Escort</span> for Modern Gentleman</h1>
-        <p class="animate-fade-in-up mb-8 text-lg text-[#FFF8F4]/80 delay-150">Opula Nights offers refined companionship in a class of its own. For those who desire connection, not just company.</p>
-        <div class="animate-fadeIn mt-8 flex justify-center gap-4">
-          <a class="rounded-full bg-pink-600 px-6 py-3 text-lg text-white shadow-lg transition duration-300 hover:bg-pink-700" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0"> What'sApp Now </a>
-          <a class="rounded-full bg-green-700 px-6 py-3 text-lg text-white shadow-lg transition duration-300 hover:bg-green-800" href="tel:919099834592"> Call Us Now </a>
-        </div>
+    <section class="relative text-white overflow-hidden">
+  <!-- Background Video -->
+  <video class="absolute inset-0 w-full h-full object-cover opacity-60 md:opacity-65 z-0" autoplay loop muted playsinline>
+    <source src="https://videos.pexels.com/video-files/4058819/4058819-uhd_1440_2732_25fps.mp4" type="video/mp4" />
+    Your browser does not support the video tag.
+  </video>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 max-w-7xl mx-auto px-6 py-28 lg:py-36">
+    <div class="max-w-3xl backdrop-blur-xs bg-white/5 border border-white/10 rounded-xl p-8 md:p-12 shadow-2xl space-y-6">
+      <h1 class="text-4xl md:text-5xl font-extrabold text-white leading-tight drop-shadow-md">
+        Real Independent Bangalore Escort Service — <span class="text-pink-500">Verified Call Girls Only</span>
+      </h1>
+      <p class="text-zinc-300 text-lg md:text-xl">
+        Opula Nights connects you with real, independent escorts in Bangalore — verified profiles, zero scams, and full transparency. Whether you're booking for the hour or the night, we deliver direct, discreet, and reliable companionship built around your vibe and budget.
+      </p>
+      <div class="flex flex-wrap gap-4 pt-4">
+        <a href="#profiles" class="bg-pink-600 hover:bg-pink-700 text-white px-6 py-3 rounded-full font-semibold shadow-lg transition">
+          🔥 View Profiles
+        </a>
+        <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0" class="bg-white text-black hover:bg-zinc-100 px-6 py-3 rounded-full font-semibold shadow-md transition">
+          📞 Book Now
+        </a>
       </div>
+    </div>
+  </div>
     </section>
 
-    <!-- Escort Profiles -->
-    <section id="escorts" class="bg-[#1a001f] px-6 py-24 md:px-20">
-      <div class="mb-14 text-center">
-        <h2 class="mb-4 text-4xl font-bold text-orange-100 md:text-5xl">Featured Bangalore Escort</h2>
-        <p class="text-lg text-[#FFF8F4]/70">Every profile is a distinct vibe—browse, discover, and feel the energy.</p>
-      </div>
-      <div class="grid gap-10 md:grid-cols-2 lg:grid-cols-3">
-        <!-- Profile Card 1 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Bangalore Escort" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/3cs54sBKj19sBV30WdbqJPfdi1nWGrkspztwkYmA.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Lana</h3>
-            <p class="text-gray-200 text-shadow-md">A soulful conversationalist who lights up every moment with meaning.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 2 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Bangalore Escort" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_8zBdyY8VnFV5Ha1PBSKIjXLMQm07k3XycVt5ALjU.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Ariana</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 3 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Bangalore Escort" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/W221002-black-05.webp" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Susu</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 4 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Bangalore Escort Service" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_2UrTbS6Dsgd31YPYRFor7VAdnDKksBzlKefN0znC.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Gia</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 5 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Bangalore Escort Service" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_9Jit1TnARtqUnaSDVIk7BKhcr8EGeZVDXz0h4WRI.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Rebbeca</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 6 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_BP5p4lUy31z1ZIjwrgnCsmd8urNlqCBPRrWHN254.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Karie</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 7 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts in Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_lDUDBXUeEHHjeCaOq2DJXuzo7WoqMsZ7hKJXvkaJ.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Abby</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 8 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/_r0dXC9GzQNZxb67EeZO8X4AEfiBKvKXe88aN8sYv.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Vanya</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 9 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/4yQYgaLlYcrnrhUKmwhWXOggmvBLcLRE5Icagz3Z.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Elise</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 10 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/5oT2PMMAbWIH5DGngXNv0D6fyWNVDFBVn3TvRWfO.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Lucia</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 11 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/06K8ztsWDR8zuzNKzRKvRxFWk8bA35QVdOULlITJ.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Irin</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 12 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/6wCmoS1UHpnWgqi1wxnP89sDUJWsRCNG7p7YiA6s.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Victoria</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 13 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/7p5hcQ0qeHuJ4lMvyFmV2DUHXfOMFhXbmuMwmbKv.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Ana</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 14 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/9UuqYHKJYFVDgc8uuZRhBZvXBHsAeol5lSsesmHL.jpg" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Jenny</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-        <!-- Profile Card 15 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition duration-500 hover:scale-105">
-          <img loading="lazy" alt="Escorts Service Bangalore" class="h-full w-full object-cover select-none" draggable="false" oncontextmenu="return false" src="Images/2306014-black-02.webp" />
-          <div class="absolute inset-0 flex flex-col items-center justify-center gap-4 bg-black/70 px-4 opacity-0 transition duration-500 group-hover:opacity-100">
-            <h3 class="text-2xl font-bold text-pink-400 drop-shadow-lg">Natalya</h3>
-            <p class="text-gray-200 text-shadow-md">The dream you didn’t know you needed. Charming, bold, and unforgettable.</p>
-            <div class="flex gap-4">
-              <a class="rounded-xl bg-pink-600 px-4 py-2 text-white shadow-lg transition hover:bg-pink-700" href="tel:919099834592">Call</a>
-              <a class="rounded-xl bg-green-700 px-4 py-2 text-white shadow-lg transition hover:bg-green-800" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0">What'sApp</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
+    <section class="relative text-white px-6 py-24 lg:px-20">
+  <div class="max-w-5xl mx-auto space-y-12">
 
-    <section class="relative overflow-hidden rounded-4xl bg-gradient-to-b from-white via-fuchsia-50 to-purple-100 px-6 py-20 text-center">
-      <div class="relative z-10 mx-auto max-w-5xl">
-        <h2 class="mb-6 text-5xl leading-tight font-extrabold text-fuchsia-900 drop-shadow-lg sm:text-6xl">Opula Nights – Your Gateway to Sensual Luxury in Bangalore</h2>
-        <p class="mb-6 text-xl leading-relaxed text-gray-800 sm:text-2xl">Indulge in the most refined <strong>Bangalore escort service</strong> tailored for those who crave deeper connections, sophistication, and unforgettable moments. At <strong>Opula Nights</strong>, we don’t just offer company — we offer curated chemistry with meaning.</p>
-        <p class="mb-4 text-lg text-gray-700">Our companions are meticulously chosen for their beauty, intellect, emotional intuition, and presence. Whether you're exploring the elite scenes of <strong>Indiranagar</strong>, enjoying a romantic escape near <strong>Ulsoor Lake</strong>, or attending a gala on <strong>MG Road</strong>, we deliver discreet and luxurious companionship to your location — <strong>from Whitefield to Koramangala</strong>, <strong>from HSR Layout to Hebbal</strong>.</p>
-        <p class="mb-6 text-lg text-gray-700">Opula Nights is the destination for those seeking <a href="bangalore-escort.html">Bangalore call girls</a> with class — offering authentic emotional intimacy, weekend getaways, business trip partners, or exclusive overnight companions. We blend passion with poise, creating moments that feel personal, not transactional.</p>
-        <p class="text-md mb-8 text-gray-600 italic">“Every encounter is a story — wrapped in silk, whispered over wine, and remembered forever.”</p>
-      </div>
+    <!-- Glass Card -->
+    <div class="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 md:p-12 shadow-xl space-y-6">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pink-500 drop-shadow-sm">
+        Real Bangalore Escorts. No Agents. No Surprises.
+      </h2>
 
-      <!-- Decorative Glow Effect -->
-      <div class="absolute -top-32 -left-32 z-0 h-96 w-96 rounded-full bg-fuchsia-300 opacity-30 blur-3xl filter"></div>
-      <div class="absolute right-0 bottom-0 z-0 h-80 w-80 rounded-full bg-purple-200 opacity-20 blur-2xl filter"></div>
-    </section>
-    <!-- Section 3-->
-    <section class="rounded-4xl px-6 py-24 md:px-20">
-      <h2 class="mb-16 text-center text-4xl font-bold text-pink-500 drop-shadow-lg md:text-5xl">🌟 Discover a Safer, Smarter Way to Explore Intimacy with Opula Nights</h2>
-      <div class="flex flex-col items-center gap-10 md:flex-row">
-        <img loading="lazy" alt="Safe Opula Nights Escort" class="w-full rounded-3xl shadow-xl select-none md:w-1/2" src="Images/photo_2024-12-18_22-40-10.jpg" draggable="false" oncontextmenu="return false" />
-        <div>
-          <p class="text-lg leading-relaxed text-gray-300">In today’s digital age, finding a safe, private, and emotionally respectful space to explore your desires is more important than ever. Opula Nights offers a refined alternative to risky or unverified options—whether you’re searching for a simple escort service, a trusted escort service near you, or a secure way to enjoy connection from the comfort of home.</p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-300">❤️ <strong>Intimacy That Respects Your Boundaries:</strong> We understand that everyone’s needs are different. That’s why we provide more than just in-person companionship—we offer video sex services and nude video call sessions with verified, emotionally intelligent companions.</p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-300">🔒 <strong>Safe, Private & Emotionally Intelligent:</strong> Opula Nights was built for modern individuals who want to explore their fantasies with emotional clarity and complete confidentiality.</p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-300">📍 <strong>Local & Verified:</strong> We operate in major Indian cities with trained, screened companions. Whether you're searching for a sex service or looking to begin with a simple video experience, Opula Nights is your trusted path to intimacy—elevated.</p>
-          <p class="mt-6 font-bold text-pink-400">Opula Nights: Designed for Desire. Delivered with Discretion.</p>
-        </div>
-      </div>
+      <p class="text-zinc-300 text-lg leading-relaxed">
+        Hi, we’re the real women behind <strong>Opula Nights</strong> — not some faceless agency or third-party handler.
+        This is our space. We built this platform ourselves so that you could finally meet independent escorts in Bangalore
+        who are honest, direct, and in full control of what we offer.
+      </p>
 
-      <div class="mt-20 flex flex-col items-center gap-10 md:flex-row-reverse">
-        <img loading="lazy" alt="Digital Intimacy Bangalore" class="w-full rounded-3xl shadow-xl select-none md:w-1/2" src="Images/photo_2024-11-27_21-19-39.jpg" draggable="false" oncontextmenu="return false" />
-        <div>
-          <h3 class="mb-4 text-3xl font-semibold text-purple-400 drop-shadow-md">Explore Safe, Sensual Experiences with Opula Nights Bangalore</h3>
-          <p class="text-lg leading-relaxed text-gray-300">Looking for a respectful and secure way to explore intimacy in Bangalore? At Opula Nights, we offer a modern, private, and emotionally intelligent experience—whether you're interested in a simple escort service, a nude video call, or a trusted Bangalore escort service near me.</p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-300">🔥 <strong>Digital Intimacy on Your Terms:</strong> Our video sex service and nude video call options are fully secure, consensual, and handled with professionalism. Every companion is real, verified, and trained in emotional intelligence.</p>
-          <p class="mt-4 text-lg leading-relaxed text-gray-300">💃 <strong>Local, Real & Emotionally Safe:</strong> Opula Nights Bangalore connects you with elite companions who embody grace, charm, and comfort. Whether you're curious about a celebrity-style figure or someone resembling your fantasy, we deliver it with care and discretion.</p>
-          <ul class="mt-4 ml-6 list-disc text-white">
-            <li>Real women. Verified profiles. No scams.</li>
-            <li>Available across Bangalore 24/7</li>
-            <li>Safe options for physical and digital intimacy</li>
-            <li>Emotional connection beyond just the physical</li>
-          </ul>
-          <p class="mt-6 font-semibold text-pink-400">Opula Nights Bangalore – For those who crave connection, not just Contact.</p>
-        </div>
-      </div>
-    </section>
-    <!-- Immersive Section for Opula Nights -->
-    <section class="relative min-h-screen overflow-hidden px-6 py-24 text-white lg:px-32">
-      <!-- Aurora Glow Background -->
-      <div class="pointer-events-none absolute inset-0 z-0">
-        <div class="absolute top-20 left-10 h-200 w-200 animate-pulse rounded-full bg-pink-500 opacity-20 blur-3xl"></div>
-        <div class="absolute right-10 bottom-10 h-200 w-200 animate-pulse rounded-full bg-purple-600 opacity-20 blur-3xl"></div>
-      </div>
+      <ul class="list-disc list-inside text-zinc-300 space-y-1 pl-4">
+        <li>We write our own profiles</li>
+        <li>We set our own availability</li>
+        <li>We decide who we meet and how</li>
+        <li><span class="text-pink-400">No agency markup. No middleman drama.</span> You talk to us — not a stranger pretending to represent us.</li>
+      </ul>
+    </div>
 
-      <!-- Main Content -->
-      <div class="relative z-10 mx-auto max-w-5xl text-center">
-        <h2 class="mb-6 text-4xl font-bold lg:text-5xl">🌸 What Is Opula Nights?</h2>
-        <p class="text-lg leading-relaxed text-gray-300">
-          Opula Nights is more than just a Bangalore escort service—it’s a sanctuary for those craving genuine connection wrapped in elegance, empathy, and emotional depth.<br /><br />
-          We prioritize
-          <span class="font-medium text-pink-400">presence over performance</span>, <span class="font-medium text-purple-300">resonance over routine</span>, and intimacy that nourishes the soulful companionship. <br /><br />
+    <!-- Why We’re Independent -->
+    <div class="grid gap-6 md:grid-cols-2">
+      <div class="bg-zinc-900/60 backdrop-blur rounded-xl border border-zinc-700 p-6 space-y-4 shadow-md">
+        <h3 class="text-xl font-semibold text-white">💬 Why We Chose to Stay Independent</h3>
+        <p class="text-zinc-400 text-md">
+          If you’ve booked from typical escort websites before, you already know how shady it gets. Fake pics.
+          Last-minute switches. Agents who don’t care. That’s why we stepped out of that game.
         </p>
-        <p class="text-lg leading-relaxed text-gray-300">
-          We exist for those who crave something more than company. You’re not just booking an experience; you’re inviting chemistry, conversation, and care. You want presence—not performance. Depth—not pretense.
-          <br /><br />
-        </p>
-        <p class="text-lg leading-relaxed text-gray-300">
-          In today’s hyper-digital world, true intimacy has become a rare luxury. At Opula Nights Bangalore, we bring that intimacy back through curated
-          <a href="https://anveshiijain.com" class="font-medium text-pink-400"> Bangalore escort</a>
-          experiences that nourish the heart as much as they fulfill the desire.
-          <br /><br />
-        </p>
-        <p class="text-lg leading-relaxed text-gray-300">
-          We are a private, high-touch
-          <a href="bangalore-escort.html" class="font-medium text-purple-400"> Escort Service Bangalore</a>
-          brand that prioritizes emotional alignment over transactions. Every session is crafted around your mood, energy, and needs. Whether you're seeking light-hearted conversation, a sensual presence, or a muse to unlock creative flow—you’ll find her here.
-          <br /><br />
-          <span class="font-medium text-rose-300 italic"> You don’t come to Opula Nights to be entertained. You come to be seen. </span>
+        <p class="text-zinc-400 text-md">
+          We run <strong>Opula Nights</strong> on our own terms — and here’s what that means for you:
         </p>
       </div>
 
-      <!-- Signature Philosophy Cards -->
-      <div class="mt-20 grid gap-10 lg:grid-cols-2">
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-pink-500/30">
-          <h3 class="mb-3 text-2xl font-semibold text-white">🤝 Our Philosophy — Connection Over Performance</h3>
-          <p class="text-gray-300">
-            We begin with a feeling. A mood. A moment of truth.
-            <br />
-            <span class="text-purple-200 italic">What emotional space do you want to explore?</span>
-            <br />
-            <br />
-            Each experience is intuitively matched, ethically delivered, and emotionally intelligent
-            <span class="font-medium text-purple-400"> Bangalore Escort</span>.
-          </p>
-          <p class="text-white">We ask you:</p>
-          <ul class="list-inside list-disc">
-            <li>What mood are you in?</li>
-            <li>What does your body crave?</li>
-            <li>What emotional space do you want to explore?</li>
-          </ul>
-          <br />
-          <p class="text-white">We are a private, high-touch escort service Bangalore brand that prioritizes emotional alignment over transactions. Every session is crafted around your mood, energy, and needs. Whether you're seeking light-hearted conversation, a sensual presence, or a muse to unlock creative flow—you’ll find her here.</p>
-        </div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-purple-500/30">
-          <h3 class="mb-3 text-2xl font-semibold text-white">It’s a reality you return to.💋 Meet the Opula Nights Companions – Elegance Meets Emotional Energy</h3>
-          <p class="text-gray-300">
-            At Opula Nights, we believe that true companionship begins with presence—not appearance. That’s why our companions are far more than what typical
-            <a href="https://www.urfijaved.in">Bangalore escort</a>
-            offer. Each woman is carefully chosen for her emotional intelligence, communication skills, sensual awareness, and natural elegance.
-            <br />
-            <br />
-            They are poised, multi-lingual, well-traveled, and deeply in tune with energy and non-verbal cues.
-            <br />
-            <br />
-            Looking for a
-            <a href="/" class="text-purple-400 hover:text-purple-500">Bangalore escort service near me</a>
-            who truly understands chemistry, connection, and conscious touch? We go beyond the surface to help you experience intimacy that is meaningful, respectful, and deeply fulfilling.
-            <br />
-            <br />
-            Our clients don’t want a label. They want a vibe. Our companions are matched based on who they are, not just how they look.
-          </p>
-        </div>
-        <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-purple-500/30">
-          <h2 class="mb-3 text-2xl font-semibold text-white">What Makes Opula Nights Different? From Other Escort Service Provider !!</h2>
-          <p class="text-gray-300">Every encounter with us is:</p>
-
-          <ul class="list-inside list-disc">
-            <li><strong> 💫 Emotionally intelligent</strong> – our Bangalore escorts read energy, not just scripts</li>
-            <li><strong> 🎯 Intuitively matched</strong> – aligned with your emotional and sensual needs</li>
-            <li><strong> 🌹 Sensually curated</strong>– lighting, touch, and tone personalized to your frequency</li>
-            <li><strong>✅ Ethically delivered</strong> – rooted in trust, discretion, and consent culture</li>
-          </ul>
-          <br />
-          <p class="text-gray-300">
-            Our companions aren’t just models. They’re muses. Each escort in Bangalore we work with brings presence—not performance. They listen, reflect, and elevate your moment into something lasting.
-            <br />
-            <br />
-            At Opula Nights, your time isn’t spent—it’s honored.
-          </p>
-        </div>
-      </div>
-
-      <!-- Signature Energies -->
-      <div class="mt-24 text-center">
-        <h3 class="mb-8 text-3xl font-bold text-white">✨ Choose From Our Signature Energies</h3>
-        <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          <!-- Energy Card -->
-          <div class="rounded-2xl border border-pink-400/30 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-300 hover:scale-105">
-            <h4 class="text-xl font-semibold text-pink-300">The Models Escort</h4>
-            <p class="mt-2 text-gray-300">Soft-spoken, introspective, and emotionally grounding.</p>
-          </div>
-          <div class="rounded-2xl border border-rose-500/30 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-300 hover:scale-105">
-            <h4 class="text-xl font-semibold text-rose-300">The Russian Escort</h4>
-            <p class="mt-2 text-gray-300">Bold, playful, and magnetic—pure flirt energy.</p>
-          </div>
-          <div class="rounded-2xl border border-indigo-400/30 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-300 hover:scale-105">
-            <h4 class="text-xl font-semibold text-indigo-300">The College Escort</h4>
-            <p class="mt-2 text-gray-300">Smart, sensual, and mentally stimulating.</p>
-          </div>
-          <div class="rounded-2xl border border-emerald-400/30 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-300 hover:scale-105">
-            <h4 class="text-xl font-semibold text-emerald-300">The Housewife Escort</h4>
-            <p class="mt-2 text-gray-300">Nurturing, healing, and soul-soothing energy.</p>
-          </div>
-          <div class="rounded-2xl border border-cyan-400/30 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-300 hover:scale-105">
-            <h4 class="text-xl font-semibold text-cyan-300">The Pornstar Escort</h4>
-            <p class="mt-2 text-gray-300">Mysterious, poised, and emotionally magnetic.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-    <!-- Main Content Part 2-->
-    <section class="relative min-h-screen overflow-hidden px-6 py-24 text-white lg:px-32">
-      <!-- Aurora Glow Background -->
-      <div class="pointer-events-none absolute inset-0 z-0">
-        <div class="absolute top-20 left-10 h-200 w-200 animate-pulse rounded-full bg-pink-500 opacity-20 blur-3xl"></div>
-        <div class="absolute right-10 bottom-10 h-200 w-200 animate-ping rounded-full bg-purple-600 opacity-20"></div>
-      </div>
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-purple-500/30">
-        <h2 class="mb-3 text-2xl font-semibold text-white">🔝 Why Choose Opula Nights as Your Bangalore Escort Service?</h2>
-        <p class="text-gray-300">In a saturated digital landscape of promises and profiles, Opula Nights rises above with experience, empathy, and ethical care. Our commitment goes beyond attraction. We focus on connection. Our Bangalore escorts are selected not only for their appearance but also for their ability to engage, adapt, and emotionally resonate with you.</p>
-        <br />
-        <h3 class="mb-8 text-xl font-bold text-white">What Sets Us Apart:</h3>
-        <ul class="list-inside list-disc">
-          <li>Verified, emotionally intelligent Bangalore escorts</li>
-          <li>Trained in sensuality, etiquette, and energy reading</li>
-          <li>Fully encrypted booking system with private coordination</li>
-          <li>Options for in-person or virtual (video) companionship</li>
-          <li>Flexible packages for solo clients, couples, and travelers</li>
-          <li>Ethical, YMYL-compliant service standards with full discretion</li>
+      <div class="bg-zinc-900/60 backdrop-blur rounded-xl border border-zinc-700 p-6 text-md text-zinc-300 shadow-md space-y-3">
+        <ul class="space-y-2 list-disc list-inside">
+          <li><strong class="text-white">✅ Direct Contact:</strong> When you book, you’re speaking to the real girl. Always.</li>
+          <li><strong class="text-white">✅ Verified Profiles:</strong> No AI, no filters, no stolen pics. Just real faces and real preferences.</li>
+          <li><strong class="text-white">✅ Upfront Rates:</strong> We tell you exactly what we offer, how much it costs, and what we’re comfortable with.</li>
+          <li><strong class="text-white">✅ No Gimmicks:</strong> No surprise charges, no forced upsells, no bait-and-switch.</li>
         </ul>
-        <br />
-        <p class="text-gray-300">From Koramangala to MG Road, <a href="bangalore-escort.html">our escorts are available 24/7</a> with seamless service across the city.</p>
       </div>
-      <br />
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-purple-500/30">
-        <h2 class="mb-3 text-2xl font-semibold text-white">🌺 Call Girl Bangalore – Reimagined With Integrity & Intimacy</h2>
-        <p class="text-gray-300">
-          Let’s talk about the term call girl Bangalore — often misused, misrepresented, and misunderstood. <br />
-          <br />
-          At Opula Nights, we reimagine this identity with pride and precision. Our companions are more than just called girls. They are trained in artful conversation, tantra, emotional intelligence, and presence. They’re confident in their boundaries, compassionate in their energy, and truly devoted to creating healing, joyful experiences. <br />
-          <br />
-          When you book a call girl in Bangalore with us, you’re not just hiring beauty — you’re receiving warmth, safety, and chemistry.
-        </p>
+    </div>
+
+  </div>
+    </section>
+    <!-- Profiles Section --> 
+  <section id="profiles" class="lazy-section text-white pt-28 pb-24 px-6 lg:px-20" x-data="{ activeModal: null }">
+   <h2 class="text-3xl font-bold text-center mb-12 text-pink-500">
+    🔥 Real Moments. Real Bangalore Escorts. Right Now Near You.
+   </h2>
+   <div class="max-w-7xl mx-auto grid md:grid-cols-2 lg:grid-cols-3 gap-12">
+   <!-- Profile Card: Aravi -->
+   <div id="Aravi" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/_BP5p4lUy31z1ZIjwrgnCsmd8urNlqCBPRrWHN254.jpg" class="w-full h-120 object-cover" alt="Aravi, Companion in Indiranagar" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Aravi, 23</h3>
+    <p class="text-md text-zinc-300">Soft-spoken | Vibrant | Indiranagar, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+saw+Aravi's+profile+on+Opula+Nights.+She+feels+genuine.+I%E2%80%99m+in+Bangalore+and+ready+to+book.+Can+we+chat%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'Aravi'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+   </div>
+
+   <!-- Modal: Aravi -->
+   <div x-show="activeModal === 'Aravi'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/_BP5p4lUy31z1ZIjwrgnCsmd8urNlqCBPRrWHN254.jpg', './Images/_42pmdCU7Q3dK7tJUw17VHWX7kPcvKIhiLJLSmV42.jpg', './Images/Xiw09zAY2WoWxTSp1P5idj8A7qwjo2RpXKZ6alWr.jpg', './Images/_WcMogiDQVrnBbPIsRk6svZkJIKdYfz3rYiNLuSm5.jpg', ] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
       </div>
-      <br />
-      <div class="rounded-3xl border border-white/10 bg-white/5 p-6 shadow-xl backdrop-blur-lg transition duration-500 hover:shadow-purple-500/30">
-        <h2 class="mb-3 text-2xl font-semibold text-white">✨ A New Kind of Escort Service Bangalore — One That Feels Real</h2>
-        <p class="text-gray-300">In a world flooded with fake profiles and shallow interactions, Opula Nights stands as a pillar of authenticity. Every escort you meet through our platform has gone through:</p>
-        <ul class="list-inside list-disc">
-          <li>Background and identity verification</li>
-          <li>Consent and emotional safety training</li>
-          <li>Session-by-session quality feedback</li>
-          <li>Confidentiality and etiquette onboarding</li>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Aravi, 23 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Soft-spoken | Call Girl | Near You in Indiranagar, Bangalore</p>
+        <p class="text-zinc-400 text-md">Aravi blends emotional warmth with soft-spoken charm. Whether you're looking for peaceful Escort Girl or a little more spark, she’s all about genuine energy and zero pressure. Always honest, always on her terms—she’s one of the most trusted independent Escort in Indiranagar.</p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>🌙 Late-Night Calm or Day-Date Vibes</li>
+          <li>📍<a href="/" class="hover:underline italic">Indiranagar Escort Nearby</a></li>
+          <li>💸 Escort Service from ₹9k–₹30k</li>
+          <li>🗣️ Speaks English, Hindi, Kannada</li>
         </ul>
-        <p class="text-gray-300">
-          We don’t just offer escort services — we offer curated emotional encounters that feel real, vibrant, and deeply human.
-          <br />
-          Looking for a deeply sensual Bangalore escort for a quiet night? Or a fiery, passionate companion to ignite your senses? Or a deeply listening muse who understands energy, chakras, and breathwork? We’ve got you covered.
-          <br />
-          This is <a href="bangalore-escort.html">Escort Bangalore</a>, upgraded to a future you didn’t know existed.
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Aravi Escort Bangalore</span>
+          <span itemprop="serviceType">Independent Female Escort</span>
+          <span itemprop="areaServed">Indiranagar, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+saw+Aravi's+profile+on+Opula+Nights.+She+feels+genuine.+I%E2%80%99m+in+Bangalore+and+ready+to+book.+Can+we+chat%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+   </div>
+
+    <!-- Profile Card: Irin -->
+    <div id="Irin" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/6wCmoS1UHpnWgqi1wxnP89sDUJWsRCNG7p7YiA6s.jpg" class="w-full h-120 object-cover" alt="Irin, Independent Companion in HSR Layout" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Irin, 26</h3>
+    <p class="text-md text-zinc-300">Bold | Intuitive | HSR Layout, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+saw+Irin%27s+profile+on+Opula+Nights.+She+seems+confident+and+real.+I%E2%80%99m+in+Bangalore+and+would+like+to+connect.+Is+she+available%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'Irin'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+    </div>
+
+    <!-- Modal: Irin -->
+    <div x-show="activeModal === 'Irin'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/6wCmoS1UHpnWgqi1wxnP89sDUJWsRCNG7p7YiA6s.jpg', './Images/dq6qxM5D4sKRTjCltYk78cAjJwIh9kiyO6q7Y2M7.jpg', './Images/A0a3mXFanRcco7E3q8i0ekCYRfYvcS6Tk6T9HNtW.jpg', './Images/IpBQvhuPo0ux9esjKXrUadDNfrPI4JmnqIFO1Tam.jpg'] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Irin, 26 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Bold | Sensual | Real Escort in HSR Layout</p>
+        <p class="text-zinc-400 text-md">
+          You won’t get rehearsed lines with Irin. She reads energy fast — listens when it matters, speaks when you’re ready. Her touch is slow and warm, not rushed. Whether it’s a date night, an unspoken cuddle, or someone who actually gets your silences — she’s all in.
+        </p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>✨ Soft, Grown-Up Chemistry</li>
+          <li>📍<a href="/" class="hover:underline italic">HSR Layout, Bangalore</a></li>
+          <li>💸 ₹6k–₹10k — No upsells, no pressure</li>
+          <li>🗣️ English & Hindi fluent</li>
+        </ul>
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Irin Escort Bangalore</span>
+          <span itemprop="serviceType">Independent Escort Bangalore</span>
+          <span itemprop="areaServed">HSR Layout, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+saw+Irin%27s+profile+on+Opula+Nights.+She+seems+confident+and+real.+I%E2%80%99m+in+Bangalore+and+would+like+to+connect.+Is+she+available%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+    <!-- Profile Card: Vanya -->
+    <div id="Vanya" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/photo_2025-04-17_19-35-28.jpg" class="w-full h-120 object-cover" alt="Vanya, Companion in Indiranagar" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Vanya, 24</h3>
+    <p class="text-md text-zinc-300">Playful | Escort | Indiranagar, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hey%2C+Vanya+from+Opula+Nights+caught+my+attention.+Her+vibe+feels+different.+I%E2%80%99m+in+the+city+today+%E2%80%94+is+she+open+to+meet%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'Vanya'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+    </div>
+
+    <!-- Modal: Vanya -->
+    <div x-show="activeModal === 'Vanya'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/photo_2025-04-17_19-35-28.jpg', './Images/photo_2025-04-17_19-36-21.jpg', './Images/photo_2025-04-17_19-36-15.jpg', './Images/photo_2025-04-17_19-36-28.jpg'] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Vanya, 24 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Playful | Escort | Based in Indiranagar</p>
+        <p class="text-zinc-400 text-md">
+          Vanya isn’t here to impress — she’s here to understand. Some nights, she’ll tease you with a smirk and a silk scarf. Other nights, she’ll pour wine, tuck in beside you, and just listen. She's perfect for introverts who crave unspoken chemistry and don’t want the “performance” energy.
+        </p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>🛋️ Cuddles, Roleplay, Soft Talks</li>
+          <li>📍<a href="/" class="hover:underline italic">Indiranagar, Bangalore</a></li>
+          <li>💸 Escort Sessions from ₹7k–₹35k</li>
+          <li>🗣️ Fluent in English, Hindi, and sarcasm 😏</li>
+        </ul>
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Vanya Independent Escort</span>
+          <span itemprop="serviceType">Bangalore Escorts</span>
+          <span itemprop="areaServed">Indiranagar, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hey%2C+Vanya+from+Opula+Nights+caught+my+attention.+Her+vibe+feels+different.+I%E2%80%99m+in+the+city+today+%E2%80%94+is+she+open+to+meet%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <!-- Profile Card: Zoya -->
+    <div id="Zoya" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/2ZbLV3PT9NXh9HhFkaGRbdYTRF75bSV9wtlaO00q.jpg" class="w-full h-120 object-cover" alt="Zoya, Companion in HSR Layout" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Zoya, 26</h3>
+    <p class="text-md text-zinc-300">Call Girls | Soft-Spoken | HSR Layout, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+just+found+Zoya+on+Opula+Nights.+She+looks+sweet+and+spontaneous.+I%E2%80%99m+nearby+in+Bangalore.+Can+I+say+hi+properly%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'zoya'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+    </div>
+
+    <!-- Modal: Zoya -->
+    <div x-show="activeModal === 'zoya'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/2ZbLV3PT9NXh9HhFkaGRbdYTRF75bSV9wtlaO00q.jpg', './Images/06K8ztsWDR8zuzNKzRKvRxFWk8bA35QVdOULlITJ.jpg', './Images/AcOlvKO3Z5hhM1QAbBHRr5f1Qyk0VJqMWriB08Qf.jpg', './Images/photo_2024-11-27_13-45-14.jpg'] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Zoya, 26 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Call Girls | Romantic | Based in HSR Layout</p>
+        <p class="text-zinc-400 text-md">
+          If you crave stillness, eye contact, and a glass of wine with a woman who listens as much as she touches — Zoya is the one. Her sessions feel like a date that actually understands you. Best suited for men who love elegance, not ego.
+        </p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>🌹 Candlelight GFE Vibes, a perfect escort</li>
+          <li>📍<a href="/" class="hover:underline italic">HSR Layout, Bangalore</a></li>
+          <li>💸 ₹9k–₹40k depending on time & mood</li>
+          <li>🗣️ English, Hindi, soft-spoken charm</li>
+        </ul>
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Zoya Independent Escort Bangalore</span>
+          <span itemprop="serviceType">Escorts in Bangalore</span>
+          <span itemprop="areaServed">HSR Layout, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+just+found+Zoya+on+Opula+Nights.+She+looks+sweet+and+spontaneous.+I%E2%80%99m+nearby+in+Bangalore.+Can+I+say+hi+properly%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <!-- Profile Card: Alina -->
+    <div id="Alina" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/7p5hcQ0qeHuJ4lMvyFmV2DUHXfOMFhXbmuMwmbKv.jpg" class="w-full h-120 object-cover" alt="Alina, Young Escort BTM Layout" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Alina, 22</h3>
+    <p class="text-md text-zinc-300">Petite | Sassy | BTM Layout, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="Hi, I saw Alina's profile on Opula Nights. She seems discreet and elegant. I’m around HSR today. Can we connect?" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'Alina'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+    </div>
+
+    <!-- Modal: Alina -->
+    <div x-show="activeModal === 'Alina'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/7p5hcQ0qeHuJ4lMvyFmV2DUHXfOMFhXbmuMwmbKv.jpg', './Images/lesNwRxnY9GwFTzLMXCY2HM5O7asUfCqRbe75AOZ.jpg', './Images/kCZIwEWBrs090nd9Lcgn6AxslZoJOyyfy1h8hSRz.jpg'] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Alina, 22 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Petite Firecracker | 5’1” | 100% GFE Escort</p>
+        <p class="text-zinc-400 text-md">
+          If you like a girl who bites her lip while teasing you on FaceTime before showing up looking *dangerous* in ripped jeans and gloss — Alina is that vibe. Think college girl confidence, Spotify playlists, soft kisses, and slow reveals.
+        </p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>🎧 Playful teasing + custom playlists</li>
+          <li>📍 BTM Layout, Bangalore</li>
+          <li>💸 ₹6k–₹10k for full GFE or Erotic Escort Time</li>
+          <li>🗣️ English, Hindi, Gen Z slay mode</li>
+        </ul>
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Alina Escort Service Bangalore</span>
+          <span itemprop="serviceType">Escorts Service Bangalore</span>
+          <span itemprop="areaServed">BTM Layout, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+saw+Alina%27s+profile+on+Opula+Nights.+She+seems+discreet+and+elegant.+I%E2%80%99m+around+HSR+today.+Can+we+connect%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+
+    <!-- Profile Card: Sana -->
+    <div id="Sana" class="bg-white/10 backdrop-blur-xl rounded-2xl overflow-hidden border border-white/20 shadow-md hover:shadow-pink-500/20 transition">
+  <img loading="lazy" src="./Images/photo_2024-11-27_21-19-21.jpg" class="w-full h-120 object-cover" alt="Sana, Bisexual Companion Indiranagar" />
+  <div class="p-5 space-y-3">
+    <h3 class="text-xl font-semibold">Sana, 27</h3>
+    <p class="text-md text-zinc-300">Bi-Curious | Soft Energy | Indiranagar, Bangalore</p>
+    <div class="flex gap-2 pt-3">
+      <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">Call</a>
+      <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hey%2C+I+came+across+Sana+on+Opula+Nights.+Her+energy+feels+real.+I%E2%80%99d+love+to+meet+her+today+in+Bangalore.+Can+we+set+it+up%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">WhatsApp</a>
+    </div>
+    <button @click="activeModal = 'sana'" class="w-full mt-3 bg-white/10 hover:bg-white/20 backdrop-blur-2xl text-white py-2 rounded-full text-md">👁️ Quick View</button>
+  </div>
+    </div>
+
+    <!-- Modal: Sana -->
+    <div x-show="activeModal === 'sana'" class="fixed inset-0 z-50 bg-black/80 flex items-center justify-center p-4 overflow-y-auto" x-transition>
+  <div class="bg-white/10 backdrop-blur-2xl max-w-4xl w-full rounded-xl overflow-hidden shadow-2xl relative flex flex-col mt-10 md:mt-0" @click.away="activeModal = null">
+    <button @click="activeModal = null" class="absolute top-4 right-4 text-white text-3xl z-50">&times;</button>
+    <div class="grid md:grid-cols-2 gap-6 p-6 overflow-y-auto max-h-[90vh]">
+      <div x-data="{ imgIndex: 0, imgs: ['./Images/photo_2024-11-27_21-19-21.jpg', './Images/photo_2024-11-27_21-19-39.jpg', './Images/photo_2024-11-27_21-19-26.jpg',',/Images/photo_2024-11-27_21-19-16.jpg'] }" class="relative w-full">
+        <div class="relative aspect-[3/4] w-full overflow-hidden rounded-lg">
+          <template x-for="(img, i) in imgs" :key="i">
+            <img :src="img" x-show="imgIndex === i" class="object-cover w-full h-full transition-all duration-500 absolute inset-0" x-transition:enter="transition-opacity duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition-opacity duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          </template>
+          <button @click="imgIndex = (imgIndex - 1 + imgs.length) % imgs.length" class="absolute left-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">‹</button>
+          <button @click="imgIndex = (imgIndex + 1) % imgs.length" class="absolute right-2 top-1/2 -translate-y-1/2 bg-black/20 hover:bg-white/30 backdrop-blur-xl text-white px-3 py-2 rounded-full z-10">›</button>
+        </div>
+      </div>
+      <div class="space-y-4">
+        <h3 class="text-2xl font-bold text-pink-500">Sana, 27 — Verified ✅</h3>
+        <p class="text-md text-zinc-300">Emotionally Available | Intimate Chemistry | Bisexual-Open</p>
+        <p class="text-zinc-400 text-md">
+          Whether you're a couple, a woman exploring softness, or a guy who respects boundaries and clarity — Sana welcomes deep vibes, slow burn tension, and honest energy. She's not here for chaos — just clean connection.
+        </p>
+        <ul class="text-md text-pink-400 space-y-1 font-medium">
+          <li>💖 Bisexual & Couple-Friendly</li>
+          <li>📍 Indiranagar Escort Alternative</li>
+          <li>💸 ₹8k–₹15k for full clarity-led sessions</li>
+          <li>🗣️ Speaks English, Urdu, Kannada</li>
+        </ul>
+        <div itemscope itemtype="https://schema.org/Service" class="hidden">
+          <span itemprop="name">Sana Companion Bangalore</span>
+          <span itemprop="serviceType">Independent Bisexual Companion Experience</span>
+          <span itemprop="areaServed">Indiranagar, Bangalore</span>
+        </div>
+        <div class="flex gap-2 pt-3">
+          <a href="tel:+919099834592" class="flex-1 bg-pink-600 hover:bg-pink-700 text-white py-2 rounded-full text-md text-center">📞 Call Now</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hey%2C+I+came+across+Sana+on+Opula+Nights.+Her+energy+feels+real.+I%E2%80%99d+love+to+meet+her+today+in+Bangalore.+Can+we+set+it+up%3F&type=phone_number&app_absent=0" class="flex-1 bg-green-700 hover:bg-green-800 text-white py-2 rounded-full text-md text-center">💬 WhatsApp</a>
+        </div>
+      </div>
+    </div>
+  </div>
+    </div>
+   </div>
+  </section>
+    <section class="py-24 px-6 lg:px-24 text-white">
+  <div class="max-w-6xl mx-auto space-y-16">
+    <div class="text-center space-y-4">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-pink-600">🔥 “Inside the Room” – What Actually Happens When You Book?</h2>
+      <p class="text-lg text-zinc-300 max-w-3xl mx-auto">Most escort websites in Bangalore skip this — but we don’t. Here’s exactly what to expect from start to finish. No shame. No guesswork.</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold text-white">🛎️ Before You Meet</h3>
+        <ul class="list-disc list-inside text-zinc-300 space-y-2">
+          <li>You confirm time, location (hotel or incall), and the vibe you want.</li>
+          <li>We share mood, boundaries, and requests (e.g., no alcohol, safe only).</li>
+          <li>No upfront payment unless clearly agreed — no scams.</li>
+        </ul>
+      </div>
+      <div>
+        <img src="./Images/image (81).webp" alt="Before you meet escort arrival" class="rounded-xl shadow-xl w-full object-cover">
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <img src="./Images/image (82).webp" alt="Escort Outcall Entry" class="rounded-xl shadow-xl w-full object-cover">
+      </div>
+      <div class="space-y-6 order-1 md:order-2">
+        <h3 class="text-2xl font-bold text-white">🚪 When She Arrives (Outcall)</h3>
+        <ul class="list-disc list-inside text-zinc-300 space-y-2">
+          <li>She knocks, texts you, waits outside.</li>
+          <li>You open the door — she greets you with a smile and calm energy.</li>
+          <li>No pressure. No assumptions. You talk, vibe, and decide the flow.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="space-y-6">
+        <h3 class="text-2xl font-bold text-white">🛏️ What’s Included (Usually)</h3>
+        <ul class="list-disc list-inside text-zinc-300 space-y-2">
+          <li>Outfit change, soft music, sensual tease or strip dance</li>
+          <li>Touch, kiss, cuddling, GFE intimacy (based on mutual mood & consent)</li>
+          <li>One to two rounds — or just deep connection time</li>
+          <li>You control the pace and vibe at every moment</li>
+        </ul>
+      </div>
+      <div>
+        <img src="./Images/image (83).webp" alt="What Happens in the Room" class="rounded-xl shadow-xl w-full object-cover">
+      </div>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-12 items-center">
+      <div class="order-2 md:order-1">
+        <img src="./Images/image (84).webp" alt="Escort Hygiene and Safety, condoms" class="rounded-xl shadow-xl w-full object-cover">
+      </div>
+      <div class="space-y-6 order-1 md:order-2">
+        <h3 class="text-2xl font-bold text-white">🧼 Hygiene, Privacy & Safety</h3>
+        <ul class="list-disc list-inside text-zinc-300 space-y-2">
+          <li>She brings her own clean towels, safety kits, and essentials</li>
+          <li>You're expected to be clean, sober, and respectful</li>
+          <li>No recording, no unexpected guests — just mutual privacy</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+    </section>
+
+    <section class="text-white py-24 px-6 lg:px-24">
+  <div class="max-w-6xl mx-auto space-y-16">
+
+    <div class="text-center space-y-4">
+      <h2 class="text-4xl md:text-5xl font-extrabold text-pink-600">💡 Who Books Us?</h2>
+      <p class="text-lg text-zinc-300 max-w-3xl mx-auto">
+        At Opula Nights, we meet all kinds of men and couples — not just the rich or famous. You don’t need a fancy car or a luxury suite to deserve genuine attention. If you’re respectful, clean, and real — you're already our type.
+      </p>
+    </div>
+
+    <div class="grid md:grid-cols-2 gap-10 text-md text-zinc-300">
+
+      <div class="space-y-6 bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+        <h3 class="text-lg font-bold text-white">🧠 Startup Founders & Tech Professionals</h3>
+        <p>We meet plenty of Bangalore techies — coders, founders, UI/UX designers, and product managers. They work long hours, often alone. They don’t need fake moans — they need someone emotionally present. Someone who listens, teases gently, and lets them exhale.</p>
+      </div>
+
+      <div class="space-y-6 bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+        <h3 class="text-lg font-bold text-white">💔 Divorced or Lonely Men</h3>
+        <p>Some guys just got out of a marriage or a long relationship. They're not looking for porn-star energy. They want kindness, comfort, and no judgment. A hug that lingers. A warm body that doesn’t ask questions. That’s us.</p>
+      </div>
+
+      <div class="space-y-6 bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+        <h3 class="text-lg font-bold text-white">🌍 International Travelers & Tourists</h3>
+        <p>In a new city? Tired of swiping apps that go nowhere? We’re fluent in English and confident in public. Whether you're here for business in Whitefield or nightlife near MG Road, we’ll be your Bangalore GFE companion, dinner date, or plus-one.</p>
+      </div>
+
+      <div class="space-y-6 bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+        <h3 class="text-lg font-bold text-white">💑 Open-Minded Couples</h3>
+        <p>Yes — couples book us. Some want to explore a threesome. Some just want to watch. Some ask us to show the woman how to seduce more confidently. We don’t judge. We just set boundaries and create safe, sensual memories.</p>
+      </div>
+
+      <div class="space-y-6 bg-zinc-900 rounded-xl p-6 border border-zinc-800">
+        <h3 class="text-lg font-bold text-white">😓 Nervous First-Timers</h3>
+        <p>We love first-timers — the shy ones, the curious ones, the ones afraid of scams. You can ask us anything. We’ll never rush or mock. Whether you're 22 or 62, your curiosity is valid, and we’re here to help you explore it safely.</p>
+      </div>
+
+    </div>
+    
+    <div class="space-y-10 bg-zinc-900 p-8 rounded-xl border border-zinc-800 text-md text-zinc-300">
+      <h3 class="text-2xl font-bold text-white">🌐 What Makes Opula Nights Different?</h3>
+      <p>Most <a href="/">escort services in Bangalore</a>  are just broker-run hubs. You scroll past 50 models, click on a profile, and get redirected to some sketchy WhatsApp handler. Then they switch the girl, double the rate, and ghost you if you question it.</p>
+      <p class="text-pink-400">We don’t play that game.</p>
+      <ul class="list-disc list-inside space-y-2">
+        <li><span class="text-white font-medium">💁‍♀️ Real Independent Escorts:</span> Every profile is written and managed by the woman herself. No agents. No filters.</li>
+        <li><span class="text-white font-medium">🗓️ Flexible Time Slots:</span> Book for a quick coffee catchup, a 90-minute cuddle, or a full night of GFE warmth.</li>
+        <li><span class="text-white font-medium">🏨 Incall & Outcall Options:</span> Want to visit her cozy apartment in HSR Layout? Or prefer her to join you at your 5-star hotel on MG Road? Either way, it’s on your terms.</li>
+        <li><span class="text-white font-medium">🎭 Choose Your Mood:</span> Sensual GFE, private strip tease, light roleplay, soft domination, deep conversation, or just relaxing cuddles.</li>
+        <li><span class="text-white font-medium">💖 No Pressure, No Scripts:</span> We won’t push you to tip, upgrade, or rush. Your comfort is our foundation.</li>
+      </ul>
+      <p class="text-zinc-300 pt-4">At the end of the day, this isn’t just about sex. It’s about connection, clarity, and chemistry.</p>
+      <p class="text-white font-medium pt-2">So if you're done with fake voices, ghost agents, and shady profiles — welcome to Opula Nights. We’re not an agency. We’re the women behind the screen. And we’re right here in Bangalore.</p>
+    </div>
+
+  </div>
+    </section>
+<section id="how-it-works" class="text-white py-16 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto space-y-12">
+
+    <!-- Header -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pink-400 tracking-tight">🧭 How It Works (Step-by-Step)</h2>
+      <p class="mt-2 text-lg text-white/80 italic">Real Bangalore Escorts. No Agents. No Surprises.</p>
+    </div>
+
+    <!-- Step-by-step Content -->
+    <div class="space-y-8 text-white/90 text-base leading-relaxed">
+
+      <div class="bg-zinc-800/70 backdrop-blur-md rounded-xl p-6 shadow-lg ring-1 ring-white/10">
+        <p class="font-semibold text-pink-300">💬 You Speak to Her — Not a Manager or Middleman</p>
+        <p class="mt-2">
+          Every <a href="/">Opula Nights companion</a> manages her own profile. No agents. No fake photos. No third-party answering your messages.
+          <br><br>
+          When you reach out, you’re messaging the real woman behind the profile — who decides her mood, time, and vibe. That’s what makes the experience human.
         </p>
       </div>
-    </section>
-    <!-- Photo Section -->
-    <section class="relative overflow-hidden px-6 py-28 text-white lg:px-24">
-      <div class="mx-auto max-w-7xl">
-        <h2 class="mb-6 text-center text-4xl font-bold lg:text-5xl">🎩 Opula Nights Services — Designed to Transcend the Physical</h2>
-        <p class="mx-auto max-w-4xl text-center text-lg text-gray-300">
-          Intimacy isn’t a transaction—it’s resonance. At Opula Nights, each service is an emotional journey guided by presence, connection, and curated sensuality. It’s the luxury of being fully seen and felt, without pretense or pressure.
-          <br />
-          <br />
-          We don’t just offer physical companionship. We offer curated, emotionally intelligent experiences that are as sensual as they are soulful. Whether you seek quiet connection, passionate escape, or an inspiring muse, we match you with Bangalore Escort who tune into your energy—not just your words.
+
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-zinc-800/70 p-6 rounded-xl ring-1 ring-white/10">
+          <p class="font-semibold text-pink-300">📲 Step 1 — Browse & Choose (Yes, You Can Ask Questions)</p>
+          <p class="mt-2">
+            Each profile shows her vibe, photos, what she’s into (from cuddles to deep convo to light GFE).<br><br>
+            If you're unsure who fits your energy, take your time — or ask. Some of us even give soft recommendations based on your mood or curiosity.
+          </p>
+          <p>Browse More Profile: <a href="#Aravi" class="text-pink-500 hover:underline">Aravi</a>, <a href="#Irin" class="text-blue-500 hover:underline">Irin</a>, <a href="#Vanya" class="text-purple-500 hover:underline">Vanya</a>, <a href="#Zoya" class="text-emerald-500 hover:underline">Zoya</a>, <a href="#Sana" class="text-red-500 hover:underline">Sana</a>, <a href="#Alina" class="text-orange-500 hover:underline">Alina</a></p>
+        </div>
+
+        <div class="bg-zinc-800/70 p-6 rounded-xl ring-1 ring-white/10">
+          <p class="font-semibold text-pink-300">🕰️ Step 2 — Confirm Time, Place & Vibe</p>
+          <p class="mt-2">
+            We ask where you're staying (hotel/home), preferred time, and how long you want to meet (1hr/2hrs/overnight).<br><br>
+            You can also share the mood you're hoping for — chill, flirty, romantic, intimate — and we’ll let you know what we’re aligned for.
+          </p>
+          <p class="mt-3 italic text-white/70">🧠 This isn’t a cold transaction. It’s two humans checking if their energies match.</p>
+        </div>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-xl ring-1 ring-white/10">
+        <p class="font-semibold text-pink-300">🧾 Step 3 — Boundaries + Agreement Before Meet</p>
+        <p class="mt-2">
+          Before anything happens:
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>We confirm mutual consent, boundaries, and what’s included</li>
+            <li>No alcohol, disrespect, or unsafe behavior — ever</li>
+            <li>No upfront payment unless clearly agreed — no scams</li>
+          </ul>
+          <p class="mt-2">This keeps both of us safe and stress-free.</p>
         </p>
       </div>
 
-      <!-- Grid of Visual Services -->
-      <div class="mt-20 grid gap-12 sm:grid-cols-2 lg:grid-cols-3">
-        <!-- 1 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-pink-500/30">
-          <img loading="lazy" src="Images/photo_2024-11-30_18-17-43.jpg" alt="bangalore escort servcice near me" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-red-500">Dinner Dates & Social Escapes</h3>
-            <p class="mt-2 text-sm text-red-600">From rooftop bars to art galleries, our companions elevate any social setting with poise and presence.</p>
-          </div>
-        </div>
-
-        <!-- 2 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-purple-500/30">
-          <img loading="lazy" src="Images/photo_2024-11-29_12-59-05.jpg" alt="bangalore escorts" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-white">Overnight Presence</h3>
-            <p class="mt-2 text-sm text-gray-300">Slow, soulful connection without pressure—just emotional warmth and natural chemistry.</p>
-          </div>
-        </div>
-
-        <!-- 3 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-emerald-500/30">
-          <img loading="lazy" src="Images/photo_2024-11-29_12-59-00.jpg" alt="bangalore escorts service" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-white">Tantric Massage & Energy Healing</h3>
-            <p class="mt-2 text-sm text-gray-300">Reconnect with your body through sacred touch guided by grounded, attuned companions.</p>
-          </div>
-        </div>
-
-        <!-- 4 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-cyan-500/30">
-          <img loading="lazy" src="Images/photo_2024-11-27_21-19-16.jpg" alt="bangalore call girls" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-slate-200">Fantasy Roleplay</h3>
-            <p class="mt-2 text-sm text-gray-200">Explore curiosity and turn-ons in a safe, judgment-free zone guided by imaginative, skilled muses.</p>
-          </div>
-        </div>
-
-        <!-- 5 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-indigo-500/30">
-          <img loading="lazy" src="Images/photo_2024-11-27_16-10-42.jpg" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" alt="bangalore escort" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-white">Couples Integration</h3>
-            <p class="mt-2 text-sm text-gray-900">Empower your partnership with mindful third-party companionship and emotionally safe exploration.</p>
-          </div>
-        </div>
-
-        <!-- 6 -->
-        <div class="group relative overflow-hidden rounded-3xl shadow-2xl transition hover:shadow-yellow-400/30">
-          <img loading="lazy" src="Images/photo_2024-11-27_15-29-14.jpg" alt="bangalore escorts" class="h-full w-full object-cover transition duration-500 group-hover:scale-105" />
-          <div class="absolute inset-0 flex flex-col justify-end bg-gradient-to-t from-black/80 to-transparent p-6">
-            <h3 class="text-xl font-semibold text-white">Weekend Escapes & Travel</h3>
-            <p class="mt-2 text-sm text-gray-300">From beach villas to hillside retreats, our companions match your pace, vibe, and style.</p>
-          </div>
-        </div>
+      <div class="bg-zinc-800/70 p-6 rounded-xl ring-1 ring-white/10">
+        <p class="font-semibold text-pink-300">🚪 Step 4 — She Arrives (Outcall) or You Visit (Incall)</p>
+        <p class="mt-2">
+          We message you when we’re outside. If it’s incall, we share hotel/apartment details once you're close.<br><br>
+          No surprises. No bait. No one else in the room — just her.
+        </p>
       </div>
 
-      <!-- Trust and Pricing -->
-      <div class="mx-auto mt-24 max-w-4xl text-center">
-        <h3 class="mb-4 text-3xl font-bold">🌍 Trust, Discretion & Transparent Pricing</h3>
-        <p class="text-lg text-gray-300">Private, encrypted bookings. Consent-led culture. No recordings, no upselling—just clarity and respect.</p>
-        <div class="mt-6 grid gap-8 text-left sm:grid-cols-2">
-          <div>
-            <h4 class="mb-2 text-lg font-semibold text-white">💰 Pricing (Indicative)</h4>
-            <ul class="list-disc pl-6 text-gray-400">
-              <li>Hourly Sessions: From ₹6,000</li>
-              <li>Overnight: From ₹15,000</li>
-              <li>Couples Sessions: From ₹12,000</li>
-              <li>Weekend Escapes: Custom</li>
-            </ul>
-            <p class="mt-2 text-sm text-gray-500">💳 UPI | Online Payment | Cash Accepted</p>
-          </div>
-          <div>
-            <h4 class="mb-2 text-lg font-semibold text-white">🏙️ Served Cities</h4>
-            <p class="text-gray-400">Mumbai, Goa, Bangalore, Delhi, Pune, Hyderabad</p>
-            <p class="mt-2 text-sm text-gray-500">From luxury hotels to quiet cafés—we meet you where you are.</p>
-          </div>
-        </div>
+      <div class="bg-zinc-800/70 p-6 rounded-xl ring-1 ring-white/10">
+        <p class="font-semibold text-pink-300">🧘‍♀️ Step 5 — Feel the Vibe, Not Pressure</p>
+        <p class="mt-2">
+          Once inside:
+          <ul class="list-disc list-inside mt-2 space-y-1">
+            <li>You talk a bit</li>
+            <li>Feel the mood</li>
+            <li>Let things unfold naturally</li>
+          </ul>
+          <p class="mt-2">If it flows, great. If not, we always respect each other and part with grace.</p>
+        </p>
       </div>
 
-      <!-- Testimonials -->
-      <div class="mx-auto mt-24 max-w-3xl">
-        <h3 class="mb-8 text-center text-3xl font-bold">❤️ What Clients Say</h3>
-        <div class="space-y-8">
-          <blockquote class="border-l-4 border-pink-500 pl-4 text-gray-300 italic">
-            “She wasn’t just beautiful. She was aware. She matched my silence, not just my words.” —
-            <span class="text-white">Karan, Bangalore</span>
-          </blockquote>
-          <blockquote class="border-l-4 border-purple-500 pl-4 text-gray-300 italic">“We booked as a couple. She made us feel safe, seen, and empowered. Game-changing.” — <span class="text-white">Neha & Dev, Pune</span></blockquote>
-          <blockquote class="border-l-4 border-emerald-500 pl-4 text-gray-300 italic">“I didn’t want a girl. I wanted peace. Opula Nights delivered that and more.” — <span class="text-white">Alex, New York</span></blockquote>
+      <!-- Why Clients Love It -->
+      <div class="backdrop-blur-2xl bg-pink-400/20 p-6 rounded-xl ring-1 ring-white/10 shadow-lg">
+        <p class="font-semibold text-pink-300">💡 Why This Works (and Why Clients Love It)</p>
+        <blockquote class="mt-2 italic border-l-4 border-pink-500 pl-4 text-white/80">
+          💬 “There’s no pressure. It’s real. No agents, no lies, no scripted fake GFE.”
+        </blockquote>
+        <p class="mt-4">
+          Opula Nights isn’t for everyone — it’s for those who want connection, respect, and real conversations with independent Bangalore escorts who actually choose to be here.
+        </p>
+      </div>
+
+    </div>
+  </div>
+</section>
+<section id="what-makes-us-different" class="text-white py-16 px-6 md:px-12">
+  <div class="max-w-5xl mx-auto space-y-12">
+
+    <!-- Title -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pink-400 tracking-tight">🧠 What Makes Us Different (And Safer)</h2>
+      <p class="mt-2 text-white/80 text-lg italic">We’re not just “not an agency.”<br>We’re real women who built Opula Nights to feel safer — for us and for you.</p>
+    </div>
+
+    <!-- Block 1 -->
+    <div class="bg-zinc-800/80 p-6 md:p-8 rounded-2xl ring-1 ring-white/10 shadow-md backdrop-blur-md">
+      <p class="text-white/90">Let me tell you what that actually means.</p>
+    </div>
+
+    <!-- Card: Independent -->
+    <div class="bg-zinc-800/70 p-6 md:p-8 rounded-xl ring-1 ring-pink-500/10 shadow-xl">
+      <p class="font-semibold text-pink-300 text-lg">✅ We’re Independent — Fully, Truly</p>
+      <p class="mt-2 text-white/90">
+        When you message one of us, you're talking to the actual girl in the photo.<br>
+        Not a handler. Not a manager. Not some Telegram ghost.<br><br>
+        We manage our own time, our own profiles, and our own choices.<br>
+        We’re not being “sent” anywhere. We choose to meet. Or not.<br><br>
+        It might sound small, but it makes everything feel more human.
+      </p>
+    </div>
+
+    <!-- Card: Pre-Screened -->
+    <div class="bg-zinc-800/70 p-6 md:p-8 rounded-xl ring-1 ring-pink-500/10 shadow-xl">
+      <p class="font-semibold text-pink-300 text-lg">🧼 We Pre-Screen Each Other</p>
+      <p class="mt-2 text-white/90">
+        This platform isn’t open to everyone — and we’re okay with that.<br><br>
+        Each of us on Opula Nights is vouched for, both in vibe and hygiene.<br>
+        We don’t accept drama. Or flakiness. Or girls who ghost clients.<br><br>
+        We hold each other to a real standard:<br>
+        Be kind. Be clean. Be emotionally aware. Show up looking and feeling good.<br>
+        Because this isn’t just about sex — it’s about presence.
+      </p>
+    </div>
+
+    <!-- Card: No Pressure -->
+    <div class="bg-zinc-800/70 p-6 md:p-8 rounded-xl ring-1 ring-pink-500/10 shadow-xl">
+      <p class="font-semibold text-pink-300 text-lg">🕊️ No Pressure, No Ghosting, No Weird Games</p>
+      <p class="mt-2 text-white/90">
+        You know those sites where you book someone and she just… vanishes?<br>
+        Yeah, we hate that too. That’s why we built this differently.<br><br>
+        If one of us confirms a time and place with you, she’ll be there.<br>
+        If plans change, we’ll say so clearly — no last-minute stories, no guilt-trips.<br><br>
+        Also? We’ll never pressure you to “add more time” or pay some mysterious upgrade.<br>
+        We tell you what we’re offering. You decide.<br><br>
+        Simple, right?
+      </p>
+    </div>
+
+    <!-- Card: Direct = Safe -->
+    <div class="bg-zinc-800/70 p-6 md:p-8 rounded-xl ring-1 ring-pink-500/10 shadow-xl">
+      <p class="font-semibold text-pink-300 text-lg">📞 Talking Direct = Safety for You and Us</p>
+      <p class="mt-2 text-white/90">
+        Because we don’t use agents, every conversation is private and personal.<br>
+        You’re not being passed around. Neither are we.<br><br>
+        This lets us:
+        <ul class="list-disc list-inside mt-2 space-y-1">
+          <li>Set boundaries early</li>
+          <li>Answer real questions</li>
+          <li>Know who we’re meeting</li>
+        </ul>
+        <p class="mt-3">And honestly? It just makes it feel warmer and more natural.</p>
+      </p>
+    </div>
+
+    <!-- Card: Real Safety -->
+    <div class="bg-zinc-800/70 p-6 md:p-8 rounded-xl ring-1 ring-pink-500/10 shadow-xl">
+      <p class="font-semibold text-pink-300 text-lg">⚠️ Safety Isn’t Just Locks and Cameras</p>
+      <p class="mt-2 text-white/90">
+        Here’s what most people don’t say:<br>
+        Safety isn’t just about the hotel you choose.<br><br>
+        It’s about energy. Boundaries. Consent. Comfort.<br>
+        When we choose each other — without outside pressure — it’s safer for both of us.<br><br>
+        We can relax. Laugh. Maybe even breathe for once.<br><br>
+        And that’s what Opula Nights is about.
+      </p>
+    </div>
+
+  </div>
+</section>
+<section id="consent-boundaries" class="text-white py-16 px-6 md:px-12">
+  <div class="max-w-4xl mx-auto space-y-10">
+
+    <!-- Title -->
+    <div class="text-center">
+      <h2 class="text-3xl md:text-4xl font-extrabold text-pink-400 tracking-tight">
+        🤝 Consent, Boundaries & Respect
+      </h2>
+      <p class="mt-2 text-white/80 text-lg italic">
+        If there’s one thing we care about more than looks or money, it’s mutual respect.
+      </p>
+      <p class="mt-2 text-white/80">
+        We’re not actresses reading scripts. We’re not bots sending heart emojis.<br>
+        We’re women — and this is our space.
+      </p>
+    </div>
+
+    <!-- Intro Block -->
+    <div class="bg-zinc-800/60 rounded-2xl p-6 md:p-8 shadow-inner ring-1 ring-white/10 backdrop-blur-sm">
+      <p class="text-white/90">
+        So let’s talk about what that means when you book with Opula Nights.
+      </p>
+    </div>
+
+    <!-- ❌ What We Don’t Do — And Why -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-semibold text-red-400">❌ What We Don’t Do — And Why</h3>
+      <p class="text-white/90">
+        We’re open-minded. But not open to everything.<br><br>
+
+        Each of us has our own boundaries — and you’ll know them before we meet.<br>
+        No guessing games. No awkward last-minute surprises.
+      </p>
+      <ul class="list-disc list-inside text-white/80 mt-2 space-y-1">
+        <li>No drugs. Ever. (Even if you offer.)</li>
+        <li>No rough or degrading behavior — unless clearly discussed and agreed to.</li>
+        <li>No filming, no hidden cams, no sneaky screenshots.</li>
+      </ul>
+      <p class="text-white/90 mt-2">You get honesty. We expect honesty back.</p>
+    </div>
+
+    <!-- 💫 Mood First, Menu Second -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-semibold text-pink-400">💫 Mood First, Menu Second</h3>
+      <p class="text-white/90">
+        We don’t do mechanical sessions or “time for service” checklists.<br><br>
+
+        This isn’t porn. This is presence.<br><br>
+
+        Every girl here responds to vibe — not demand.
+      </p>
+      <p class="text-white/90 mt-2">
+        So yeah, we might talk a little before we touch. We might cuddle first.<br>
+        Because how we feel matters just as much as what we do.
+      </p>
+      <p class="text-white/90 mt-2">And that makes everything better for both of us.</p>
+    </div>
+
+    <!-- 🛑 She Can Stop. You Can Too. -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-semibold text-yellow-400">🛑 She Can Stop. You Can Too.</h3>
+      <p class="text-white/90">
+        This part is big.<br>
+        If, at any point, she feels unsafe, triggered, or disconnected — she can walk.<br>
+        And you can too.
+      </p>
+      <p class="text-white/90 mt-2">
+        There’s no pressure to perform. Not from us. Not on you.<br><br>
+
+        We don’t judge first-timers. We don’t force anything.<br>
+        If we’re not feeling it, we say so — kindly and clearly.
+      </p>
+      <p class="text-white/90 mt-2">That’s the level of emotional maturity you’ll find here.<br>
+        That’s the level of comfort we expect back.
+      </p>
+    </div>
+
+    <!-- 💖 GFE Isn’t Just a Tag — It’s a Feeling -->
+    <div class="space-y-4">
+      <h3 class="text-xl font-semibold text-fuchsia-400">💖 GFE Isn’t Just a Tag — It’s a Feeling</h3>
+      <p class="text-white/90">
+        You’ve probably seen the term “GFE” (girlfriend experience) on every site.<br>
+        But here’s what it actually means to us:
+      </p>
+      <ul class="list-disc list-inside text-white/80 mt-2 space-y-1">
+        <li>Eye contact, not transactions</li>
+        <li>Comfort, not choreography</li>
+        <li>Slow touches, playful teasing, soft laughter</li>
+        <li>A moment where nothing feels forced</li>
+      </ul>
+      <p class="text-white/90 mt-2">
+        We’re not pretending to be anyone. We’re just showing up — and letting it feel real.
+      </p>
+    </div>
+
+  </div>
+</section>
+<section id="locations-bangalore" class="text-white py-20 px-6 md:px-10">
+  <div class="max-w-5xl mx-auto space-y-14">
+
+    <!-- Title & Subheading -->
+    <div class="text-center space-y-3">
+      <h2 class="text-3xl md:text-4xl font-bold text-pink-400">🎯 Most Booked Locations in Bangalore</h2>
+      <p class="text-white/80 text-lg italic">Where Real Connections Happen – By Area, Not Hype</p>
+      <p class="text-white/90">
+        We don’t just say “Bangalore” and hope you guess where we are.<br />
+        Each of us lives, hosts, or travels to specific neighborhoods — and we’re clear about it.
+      </p>
+    </div>
+
+    <!-- Location Cards -->
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+      
+      <!-- Card Block -->
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🌿 Koramangala</h3>
+        <p class="text-white/80 mt-2">
+          Our comfort zone. Cozy cafes, serviced apartments, and safe incall setups.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🌆 Indiranagar</h3>
+        <p class="text-white/80 mt-2">
+          Wine bars, startup bros, and emotional cuddles after a bad pitch deck.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🧠 Whitefield</h3>
+        <p class="text-white/80 mt-2">
+          Plenty of techies, expats, and long GFE bookings in hotel rooms.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🌃 MG Road & Brigade Road</h3>
+        <p class="text-white/80 mt-2">
+          Perfect for dinner dates, luxury incalls, and discreet high-profile meets.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🌸 HSR Layout</h3>
+        <p class="text-white/80 mt-2">
+          Lots of housewives and college girls offer incall here — peaceful and private.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md">
+        <h3 class="text-xl font-semibold text-fuchsia-400">✨ BTM Layout</h3>
+        <p class="text-white/80 mt-2">
+          Known for affordability and younger companions. Usually 5k–8k sessions.<br>
+        </p>
+      </div>
+
+      <div class="bg-zinc-800/70 p-6 rounded-2xl border border-zinc-700 shadow-md md:col-span-2">
+        <h3 class="text-xl font-semibold text-fuchsia-400">🚘 Hebbal, Yelahanka, KR Puram</h3>
+        <p class="text-white/80 mt-2">
+          We take outcalls here more than incalls — most girls won’t host but will visit safely.<br>
+        </p>
+      </div>
+    </div>
+
+    <!-- Incall or Outcall Info -->
+    <div class="bg-zinc-800/70 mt-10 p-6 md:p-8 rounded-2xl shadow-inner ring-1 ring-white/10">
+      <h3 class="text-xl font-semibold text-pink-400 mb-3">🏩 Incall or Outcall? You Choose.</h3>
+      <p class="text-white/80 mb-2">
+        <strong>Incall (You visit us):</strong> Available in Koramangala, Indiranagar, HSR, and BTM
+      </p>
+      <p class="text-white/80">
+        <strong>Outcall (We come to you):</strong> MG Road, Whitefield, Marathahalli, Yelahanka, and most 3+ star hotels
+      </p>
+      <p class="text-white/90 mt-4">No vague locations. No bait-and-switch. Just clear zones, verified girls, and direct coordination.</p>
+    </div>
+
+    <!-- Emotional Benefits -->
+    <div class="space-y-6 mt-12">
+      <h3 class="text-2xl font-semibold text-pink-400 text-center">❤️ Emotional Benefits of Booking an Independent Bangalore Escort Service</h3>
+      <p class="text-white/80 text-center italic">
+        Because Sometimes You Don’t Want Sex. You Want to Feel Something.
+      </p>
+      <p class="text-white/90">
+        We’re not here to sell you a fantasy with fake moans and robotic scripts.<br>
+        We’re here to show up — as women, as listeners, as warm bodies who can hold space when the world feels too loud.
+      </p>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h4 class="font-semibold text-fuchsia-400 text-lg">💞 What GFE Actually Means (to Us)</h4>
+          <ul class="list-disc list-inside text-white/80 mt-2 space-y-1">
+            <li>Eye contact, not transactions</li>
+            <li>Comfort, not choreography</li>
+            <li>Slow touches, playful teasing, soft laughter</li>
+            <li>A moment where nothing feels forced</li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="font-semibold text-fuchsia-400 text-lg">🧘‍♂️ For Men Who Are…</h4>
+          <ul class="list-disc list-inside text-white/80 mt-2 space-y-1">
+            <li><strong>Overworked:</strong> You carry teams, codebases, KPIs. Let someone carry your emotional weight.</li>
+            <li><strong>Lonely:</strong> Burned out from dating apps? We won’t ask questions — just vibe.</li>
+            <li><strong>Touch-starved:</strong> Some haven’t felt a genuine hug in months. We won’t rush or judge.</li>
+          </ul>
         </div>
       </div>
-    </section>
+      <p class="text-white/90 mt-6">
+        <strong>💖 The Real After-Effect?</strong><br>
+        You leave feeling…<br><br>
+        ✅ Desired — not tolerated<br>
+        ✅ Respected — not handled<br>
+        ✅ Calm — like your mind’s finally not racing
+      </p>
+      <p class="text-white/90 mt-2">
+        Because GFE isn’t about what happens in bed.<br>
+        It’s about what happens in your heart.
+      </p>
+    </div>
+  </div>
+</section>
 
     <!-- Escort Types Section -->
     <section class="relative overflow-hidden px-6 py-24 lg:px-32">
@@ -648,7 +1055,7 @@
           <img loading="lazy" src="Images/photo_2024-11-27_14-59-11.jpg" alt="Bangalore Escort" class="h-120 w-full object-cover opacity-90 md:h-100" />
           <div class="p-6 text-white">
             <h3 class="text-2xl font-semibold">Elite Companions</h3>
-            <p class="mt-3 text-sm text-gray-300">Experience grace, intellect, and high-society charm in every interaction.</p>
+            <p class="mt-3 text-md text-gray-300">Experience grace, intellect, and high-society charm in every interaction.</p>
           </div>
         </div>
 
@@ -657,7 +1064,7 @@
           <img loading="lazy" src="Images/photo_2024-11-27_14-23-06.jpg" alt="Bangalore Escort Service" class="h-120 w-full object-cover opacity-90 md:h-100" />
           <div class="p-6 text-white">
             <h3 class="text-2xl font-semibold">College Sweethearts</h3>
-            <p class="mt-3 text-sm text-gray-300">Youthful, radiant, and effortlessly charming — a spark for every moment.</p>
+            <p class="mt-3 text-md text-gray-300">Youthful, radiant, and effortlessly charming — a spark for every moment.</p>
           </div>
         </div>
 
@@ -666,72 +1073,13 @@
           <img loading="lazy" src="Images/photo_2024-11-27_14-04-27.jpg" alt="Escorts Bangalore" class="h-120 w-full object-cover opacity-90 md:h-100" />
           <div class="p-6 text-white">
             <h3 class="text-2xl font-semibold">Luxury Seductresses</h3>
-            <p class="mt-3 text-sm text-gray-300">Indulge in opulence, passion, and a night that blurs fantasy and reality.</p>
+            <p class="mt-3 text-md text-gray-300">Indulge in opulence, passion, and a night that blurs fantasy and reality.</p>
           </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- Section 4-->
-    <section class="px-6 py-24 text-[#F5E1CE] md:px-20">
-      <div class="mx-auto max-w-5xl">
-        <h2 class="mb-12 text-center text-4xl font-bold text-[#CE0058] md:text-5xl">💃 Types of Bangalore Escorts We Offer</h2>
-        <p class="mb-6 text-lg text-[#F5E1CE]/80">Every individual has unique desires and comfort levels. That’s why Opula Nights offers a wide spectrum of companions, each with distinct charm, emotional tone, and sensual flair.</p>
-
-        <div class="grid gap-10 md:grid-cols-2">
-          <div class="rounded-3xl bg-white/5 p-6 shadow-xl backdrop-blur-md">
-            <h3 class="mb-2 text-xl font-semibold text-[#F5E1CE]">💕 Independent Escorts Bangalore</h3>
-            <p class="text-[#F5E1CE]/70">These companions operate autonomously, are confident, conversational, and ideal for longer bookings. Perfect for deeper engagement and emotional connection.</p>
-          </div>
-
-          <div class="rounded-3xl bg-white/5 p-6 shadow-xl backdrop-blur-md">
-            <h3 class="mb-2 text-xl font-semibold text-[#F5E1CE]">🌟 VIP Bangalore Escorts</h3>
-            <p class="text-[#F5E1CE]/70">For high-profile clientele seeking discretion. Beauty, grace, and sophistication—trained in both public etiquette and private intimacy.</p>
-          </div>
-
-          <div class="rounded-3xl bg-white/5 p-6 shadow-xl backdrop-blur-md">
-            <h3 class="mb-2 text-xl font-semibold text-[#F5E1CE]">🌍 Russian Escorts Bangalore</h3>
-            <p class="text-[#F5E1CE]/70">Elegant, fluent, and globally experienced—our Russian companions bring international allure with sensual confidence.</p>
-          </div>
-
-          <div class="rounded-3xl bg-white/5 p-6 shadow-xl backdrop-blur-md">
-            <h3 class="mb-2 text-xl font-semibold text-[#F5E1CE]">👩 College Girls & Young Escorts</h3>
-            <p class="text-[#F5E1CE]/70">Playful, flirtatious, and full of youthful charm—ideal for guests seeking spontaneity and high-energy connection.</p>
-          </div>
-
-          <div class="rounded-3xl bg-white/5 p-6 shadow-xl backdrop-blur-md md:col-span-2">
-            <h3 class="mb-2 text-xl font-semibold text-[#F5E1CE]">👸 Mature Companions</h3>
-            <p class="text-[#F5E1CE]/70">Emotionally nurturing, calm, and grounding. These companions provide a soothing, therapeutic experience perfect for first-timers or emotional healing.</p>
-          </div>
-        </div>
-
-        <!-- Service Areas -->
-        <div class="mt-20 rounded-3xl bg-white/5 p-6 shadow-lg backdrop-blur-md">
-          <h3 class="mb-4 text-3xl font-bold text-[#CE0058]">🌐 Popular Areas We Cover in Bangalore</h3>
-          <ul class="list-inside list-disc space-y-2 text-[#F5E1CE]/70">
-            <li><strong>Koramangala & HSR Layout</strong> – For nightlife lovers and urban professionals</li>
-            <li><strong>MG Road & Brigade Road</strong> – Ideal for business travelers and upscale bookings</li>
-            <li><strong>Whitefield & Electronic City</strong> – Convenient for tech professionals and solo guests</li>
-            <li><strong>Indiranagar & Jayanagar</strong> – Known for romantic ambiance and boutique settings</li>
-            <li><strong>Hebbal, Yelahanka & Airport Zone</strong> – Great for outstation clients and hotel-based meets</li>
-          </ul>
-        </div>
-
-        <!-- Escort vs Call Girl -->
-        <div class="mt-16 rounded-3xl bg-white/5 p-6 shadow-lg backdrop-blur-md">
-          <h3 class="mb-4 text-3xl font-bold text-[#CE0058]">⚖️ Escort vs. Call Girl: What’s the Difference?</h3>
-          <p class="text-[#F5E1CE]/70">
-            Though used interchangeably, there’s a clear distinction:
-            <br /><br />
-            <strong>Escorts</strong> provide more than just physical intimacy—they offer conversation, presence, companionship, and etiquette—ideal for both private and public moments. <br /><br />
-            <strong>Call Girls</strong> typically focus on short-term physical pleasure with little emotional or social flexibility. <br /><br />
-            <span class="font-semibold text-[#F5E1CE]">At Opula Nights, we only offer verified Bangalore escorts for elevated, emotionally secure, and fully respectful experiences.</span>
-          </p>
         </div>
       </div>
     </section>
     <!-- FAQ-->
-    <section class="rounded-4xl bg-white/5 px-4 py-16 backdrop-blur-2xl md:px-12 lg:px-24" id="faqs">
+    <section class="rounded-4xl bg-white/5 px-4 py-16 backdrop-blur-2xl md:px-12 lg:px-24" id="FAQ">
       <div class="mx-auto max-w-4xl">
         <h2 class="mb-8 border-b-2 border-pink-500 pb-2 text-3xl font-semibold md:text-4xl">❓ FAQs About Bangalore Escort Services</h2>
 
@@ -764,16 +1112,67 @@
       </div>
     </section>
     <br />
+    <section id="keyword-cloud" class="py-14 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-2xl md:text-3xl font-bold text-pink-400 text-center mb-8">🔥 Bangalore Escort Related Searches</h2>
+    <div class="flex flex-wrap gap-3 justify-center">
+
+      <!-- Buttons -->
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort service</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort services</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort girls</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort girl</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">shemale bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort telegram</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort sex</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort agency</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort for 69 position</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort locanto</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">independent bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">mona bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort women</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort duty</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort porn</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">isha bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort review</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore escort xxx</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">locanto bangalore escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl service</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl number</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl sex</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl sex videos</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl sex video</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl locanto</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl escort service</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl porn</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl contact number</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl xxx</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl phone number</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">locanto bangalore call girl</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl fuck</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl numbers</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl independent</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl skokka</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl escort</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl no</a>
+      <a href="/" class="px-5 py-2 rounded-full bg-pink-700/80 text-white text-sm hover:bg-pink-800 transition">bangalore call girl telegram</a>
+
+    </div>
+  </div>
+</section>
+
     <!-- Footer -->
     <footer class="rounded-t-4xl bg-gradient-to-br from-[#CE0058] to-[#561115] px-6 py-12 text-orange-100 md:px-20">
       <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
         <div>
           <h4 class="mb-3 text-lg font-semibold">Opula Nights</h4>
-          <p class="text-sm text-[#f2ecec]/70">Elevating intimacy to an art form in Bangalore and beyond.</p>
+          <p class="text-md text-[#f2ecec]/70">Elevating intimacy to an art form in Bangalore and beyond.</p>
         </div>
         <div>
           <h4 class="mb-3 text-lg font-semibold">Quick Links</h4>
-          <ul class="space-y-2 text-sm">
+          <ul class="space-y-2 text-md">
             <li>
               <a href="#" class="transition hover:text-[#2B0033]">Home</a>
             </li>
@@ -790,7 +1189,7 @@
         </div>
         <div>
           <h4 class="mb-3 text-lg font-semibold">For Rent Contact</h4>
-          <a href="mailto:rent@opulanights.com" class="text-lg text-[#FFF8F4]/70">Email: rent@OpulaNights.com</a>
+          <a href="mailto:jannatkhana247@gmail.com" class="text-lg text-[#FFF8F4]/70">Email: jannatkhana247@gmail.com</a>
           <div class="mt-4 flex space-x-4">
             <a href="#"><img src="https://img.icons8.com/ios-filled/25/twitterx--v1.png" alt="twitter logo" /></a>
             <a href="#"><img src="https://img.icons8.com/fluency/25/instagram-new.png" alt="instagram logo" /></a>
@@ -801,15 +1200,6 @@
       <div class="mt-10 text-center text-xs text-[#FFF8F4]/50">© 2025 Opula Nights. All rights reserved.</div>
       <h2 class="text-center text-5xl font-extrabold md:text-7xl">OPULA NIGHTS</h2>
     </footer>
-    <!-- PopUp What'sApp Button-->
-    <a class="hover::bg-green-800 fixed right-4 bottom-4 z-50 flex items-center space-x-2 rounded-full bg-green-700 p-4 text-white shadow-lg transition duration-300" href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+Opula+Nights+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0" rel="noopener noreferrer" target="_blank">
-      <img alt="What'sApp--v1" height="24" src="https://img.icons8.com/color/48/whatsapp--v1.png" width="24" />
-      <span class="font-semibold sm:inline-block">Chat on What'sApp</span>
-    </a>
-    <!-- Pop-up Call Button Positioned Above What'sApp -->
-    <div class="fixed right-6 bottom-24 z-50">
-      <a class="rounded-full bg-pink-600 px-5 py-3 font-bold text-white shadow-lg transition-all duration-300 hover:bg-pink-700" href="tel:919099834592"> 📞 <span class="font-semibold sm:inline-block">Call Now</span> </a>
-    </div>
     <script>
       window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
     </script>
