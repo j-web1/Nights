@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../output.css">
+        <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+</head>
+  <body class="bg-gradient-to-br from-[#2B0033] to-black text-[#FFF8F4] select-none">
+    <header 
+  class="fixed top-0 left-0 w-full z-50 bg-black/30 backdrop-blur-lg shadow-xl ring-1 ring-white/10" 
+  x-data="{ open: false }"
+>
+  <div class="max-w-7xl mx-auto flex items-center justify-between px-6 py-4">
+
+    <!-- Logo -->
+    <a href="/" class="text-2xl font-extrabold bg-gradient-to-r from-fuchsia-400 via-pink-500 to-purple-500 bg-clip-text text-transparent animate-text-glow focus:outline-none focus:ring-2 focus:ring-pink-500">
+      Opula<span class="text-white">Nights</span>
+    </a>
+
+    <!-- Desktop Nav -->
+    <nav class="hidden md:flex gap-6" aria-label="Main navigation">
+      <a href="#home" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 backdrop-blur-sm rounded-full hover:text-pink-400 transition shadow-pink-500/20 shadow-md focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Home
+      </a>
+      <a href="#profiles" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Companions
+      </a>
+      <a href="#FAQ" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        FAQ
+      </a>
+      <a href="price/" class="px-4 py-2 text-md text-white/80 bg-zinc-900/40 rounded-full hover:text-pink-400 transition focus:outline-none focus:ring-2 focus:ring-pink-400">
+        Price
+      </a>
+    </nav>
+
+    <!-- CTA Button -->
+    <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0" class="hidden md:inline-block rounded-full bg-pink-500 hover:bg-pink-600 text-white px-5 py-2 text-md font-semibold shadow-xl focus:outline-none focus:ring-2 focus:ring-white">
+      🔥 Book Now
+    </a>
+
+    <!-- Hamburger -->
+        <button @click="open = !open" class="text-pink-500 focus:outline-none md:hidden" aria-label="Open menu">
+          <span class="sr-only">Open menu</span>
+          <svg x-show="!open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+          </svg>
+          <svg x-show="open" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+          </svg>
+        </button>
+        <!-- Mobile Menu Fixed + Z-index + Shadow -->
+        <div x-show="open" x-transition class="fixed top-[80px] right-4 left-4 z-[9999] space-y-5 rounded-2xl border border-white/10 bg-[#111]/95 p-6 text-center text-white shadow-2xl ring-1 ring-white/10 backdrop-blur-xl">
+          <a href="/" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">About</a>
+          <a href="#profiles" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">Profiles</a>
+          <a href="price/" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">Price</a>
+          <a href="#FAQ" @click="open = false" class="block text-pink-600 transition hover:text-pink-700">FAQ</a>
+          <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+have+visited+your+site+urfijaved.in+I+want+a+call+girl+with+cash+payment+in+bangalore.&type=phone_number&app_absent=0" @click="open = false" class="mt-4 inline-block rounded-full bg-pink-600 px-6 py-2 text-white shadow-lg transition hover:bg-pink-700"> ✦ Book Now </a>
+        </div>
+  </nav>
+    </header>
+      <div class="max-w-5xl mx-auto px-6 pt-26">
+    <section class="mb-12 text-center">
+      <h1 class="text-4xl font-bold text-pink-400 mb-4">💬 Our Price Guide — From Real Independent Bangalore Escorts</h1>
+      <p class="text-lg text-purple-200 leading-relaxed">No agents. No fake offers. No games.<br>Just real women setting our own rates — because we value honesty, time, and emotional safety (for both of us).</p>
+    </section>
+
+    <section class="bg-[#2a0039] p-6 rounded-xl shadow-xl mb-10">
+      <p class="text-md text-purple-200 leading-relaxed">If you’ve been searching “<a href="/" class="underline">escort Bangalore</a> ” or “call girls under 3000” — you’ve probably already seen the fake numbers, ghost profiles, and bait-and-switch chaos.</p>
+      <p class="mt-4 text-md text-pink-100 leading-relaxed font-medium">We’re not that.<br>We’re real, independent Bangalore escorts — and what we offer goes beyond the basics.</p>
+    </section>
+</div>
+<section id="pricing" class="py-8 px-6 md:px-10">
+  <div class="max-w-6xl mx-auto">
+    <h2 class="text-3xl md:text-4xl font-bold text-white text-center mb-12">💎 Premium Packages</h2>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+      <!-- 2 Hours -->
+      <div class="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-2xl p-6 text-white shadow-xl">
+        <h3 class="text-xl font-semibold mb-2">2 Hours</h3>
+        <p class="text-3xl font-bold text-pink-400 mb-1">₹15,000 <span class="text-sm font-medium text-white/70">/ Single Shot</span>
+        </p>
+        <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0"
+         class="w-full bg-zinc-800 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg border border-white/20 my-4 block text-center">BOOK NOW</a>
+        <p class="text-sm text-white/70 mb-4">Budget Friendly option with professionals available 24/7</p>
+        <ul class="text-sm space-y-2">
+          <li>✓ Single Shot</li>
+          <li>✓ 2 Hours Time</li>
+          <li>✓ Sexy Talk</li>
+        </ul>
+      </div>
+
+      <!-- Full Night -->
+      <div class="bg-gradient-to-br from-purple-800 to-fuchsia-900 rounded-2xl p-6 text-white shadow-xl relative">
+        <span class="absolute top-4 right-4 bg-yellow-400 text-black text-xs font-bold px-3 py-1 rounded-full">VIP</span>
+        <h3 class="text-xl font-semibold mb-2">Full Night</h3>
+        <p class="text-3xl font-bold text-pink-100 mb-1">₹35,000 <span class="text-sm font-medium text-white/70">/ multiple shots</span>
+        </p>
+        <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0" 
+             class="w-full bg-zinc-800 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg border border-white/20 my-4 block text-center">BOOK NOW</a>
+        <p class="text-sm text-white/70 mb-4">Premium benefits with priority bookings and VIP Models</p>
+        <ul class="text-sm space-y-2">
+          <li>✓ 4 Shot</li>
+          <li>✓ Sexy Talk</li>
+          <li>✓ Full Night</li>
+          <li>✓ Cum in Mouth</li>
+          <li>✓ Blowjob & Handjob</li>
+          <li>✓ Long Drive</li>
+          <li>✓ Take to PUB & BAR</li>
+        </ul>
+      </div>
+
+      <!-- 3 Hours -->
+      <div class="bg-gradient-to-br from-zinc-800 to-zinc-900 rounded-2xl p-6 text-white shadow-xl">
+        <h3 class="text-xl font-semibold mb-2">3 Hours</h3>
+        <p class="text-3xl font-bold text-pink-400 mb-1">₹20,000 <span class="text-sm font-medium text-white/70">/ Double Shot</span>
+        </p>
+        <a href="https://api.whatsapp.com/send/?phone=919099834592&text=Hi%2C+I+found+Opula+Nights+online.+I%E2%80%99m+looking+for+someone+genuine+in+Bangalore.+Cash+ready.+Can+we+chat%3F&type=phone_number&app_absent=0"
+        class="w-full bg-zinc-800 hover:bg-pink-600 text-white font-semibold py-2 rounded-lg border border-white/20 my-4 block text-center">BOOK NOW</a>
+        <p class="text-sm text-white/70 mb-4">Affordable Choice with all services and professional girls.</p>
+        <ul class="text-sm space-y-2">
+          <li>✓ Double Shot</li>
+          <li>✓ 3 Hours Time</li>
+          <li>✓ Sexy Talk</li>
+          <li>✓ Cum in Mouth</li>
+          <li>✓ Blowjob & Handjob</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+      <div class="max-w-5xl mx-auto px-6 py-16 space-y-12">
+  <section class="relative z-10">
+    <h2 class="text-2xl font-semibold text-pink-300 mb-4">🕰️ Rates That Respect Both Our Time</h2>
+    <p class="text-md text-purple-200 leading-relaxed mb-6">We don’t charge for “services.” We offer time — soft, pressure-free, fully present time — and we honor it we are <a href="/" class="text-pink-500">Opula Nights</a></p>
+
+    <div class="overflow-x-auto rounded-lg border border-pink-500">
+      <table class="min-w-full bg-[#1a0025] text-purple-100">
+        <thead class="bg-pink-500 text-white text-left text-sm">
+          <tr>
+            <th class="px-5 py-3 font-semibold">Session</th>
+            <th class="px-5 py-3 font-semibold">Incall<br><span class="text-xs font-normal">(you come to us)</span></th>
+            <th class="px-5 py-3 font-semibold">Outcall<br><span class="text-xs font-normal">(we come to you)</span></th>
+          </tr>
+        </thead>
+        <tbody class="text-sm divide-y divide-pink-700">
+          <tr><td class="px-5 py-4">1 hour</td><td class="px-5 py-4">₹10,000</td><td class="px-5 py-4">₹12,000</td></tr>
+          <tr><td class="px-5 py-4">90 min</td><td class="px-5 py-4">₹14,000</td><td class="px-5 py-4">₹16,000</td></tr>
+          <tr><td class="px-5 py-4">2 hr</td><td class="px-5 py-4">₹18,000</td><td class="px-5 py-4">₹20,000</td></tr>
+          <tr><td class="px-5 py-4">Overnight (8 hrs)</td><td class="px-5 py-4">₹35,000</td><td class="px-5 py-4">₹38,000</td></tr>
+          <tr><td class="px-5 py-4">Full Day (12–14 hrs)</td><td class="px-5 py-4">₹50,000</td><td class="px-5 py-4">₹55,000</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </section>
+
+  <section class="bg-[#2a0039] p-6 rounded-lg border-l-4 border-yellow-400 text-sm text-yellow-100 shadow-md relative z-10">
+    <p class="mb-2"><strong>Incall:</strong> Cozy, private, and hosted by us — no hotels, no awkward check-ins.</p>
+    <p><strong>Outcalls:</strong> Safe, respectful hotels only (3-star and above, central Bangalore).</p>
+  </section>
+
+  <section class="bg-[#2a0039] p-6 rounded-lg shadow-md relative z-10">
+    <h2 class="text-2xl font-semibold text-yellow-300 mb-3">🚫 No Surprises. No Secrets.</h2>
+    <p class="text-purple-200 mb-4">We don’t play games with money. Everything is clear before we meet.<br>What you see here is what it costs. That’s it.</p>
+    <p class="text-pink-100 mb-4">We also don’t:</p>
+    <ul class="list-disc list-inside text-purple-100 space-y-2">
+      <li>Pay agents or middlemen</li>
+      <li>Send fake photos or pretend to be someone else</li>
+      <li>Add “hidden” charges mid-session</li>
+    </ul>
+    <p class="mt-4 text-pink-200">When you message one of us, you’re talking to <strong>us</strong>. Not a guy named “Manager” with ten fake profiles on his phone.</p>
+  </section>
+
+  <section class="bg-[#14001d] p-6 rounded-xl border border-pink-600 shadow-lg relative z-10">
+    <h2 class="text-2xl font-semibold text-pink-300 mb-4">📍 Where We Work</h2>
+    <p class="text-purple-200 mb-4">We’re based across every corner of Bangalore — because connection shouldn’t be limited by location.</p>
+    <p class="text-purple-100 mb-4">Some of us host from cozy incall spaces, others offer discreet outcalls to quality hotels. Wherever you are, we might not be far.</p>
+    <p class="text-pink-100 font-semibold mb-2">Here are the areas we’re available in:</p>
+    <ul class="list-disc list-inside text-purple-100 space-y-2">
+      <li><strong>Central Bangalore:</strong> MG Road, Brigade Road, UB City, Richmond Town</li>
+      <li><strong>South Bangalore:</strong> Koramangala, Jayanagar, BTM Layout, JP Nagar, Banashankari</li>
+      <li><strong>East Bangalore:</strong> Indiranagar, Domlur, CV Raman Nagar, Marathahalli, Whitefield, KR Puram</li>
+      <li><strong>North Bangalore:</strong> Hebbal, Yelahanka, RT Nagar, Sanjay Nagar, Manyata Tech Park</li>
+      <li><strong>West Bangalore:</strong> Rajajinagar, Malleswaram, Vijayanagar, Nagarbhavi</li>
+      <li><strong>Electronic City & Hosur Road:</strong> for longer sessions or pre-booked outcalls</li>
+      <li><strong>Airport Road & Devanahalli area:</strong> available with advance notice</li>
+    </ul>
+    <p class="mt-4 text-yellow-200 italic">Some locations may require a minimum booking time or higher outcall rates due to distance or traffic.</p>
+  </section>
+
+  <section class="bg-[#2a0039] p-6 rounded-lg shadow-md relative z-10">
+    <h2 class="text-2xl font-semibold text-pink-300 mb-4">❤️ For First-Timers: It's Okay to Be Nervous</h2>
+    <p class="text-purple-200 mb-4">If this is your first time booking an escort in Bangalore, you’re not alone.<br>We’ve met shy techies, recently divorced men, nervous tourists, and kind souls just looking for peace.</p>
+    <p class="text-pink-100">You don’t need to impress us. Just be respectful, clean, and kind. We’ll guide the rest.</p>
+  </section>
+
+  <section class="bg-[#14001d] p-6 rounded-lg shadow-md relative z-10">
+    <h2 class="text-2xl font-semibold text-yellow-300 mb-4">💌 How to Book (Without Awkwardness)</h2>
+    <ul class="list-disc list-inside text-purple-100 space-y-2 mb-4">
+      <li>Message us (WhatsApp is best)</li>
+      <li>Share your name, time, incall/outcall, and what you’re looking for</li>
+      <li>We’ll reply if we’re available and vibe with your message</li>
+      <li>If it feels right for both of us — we confirm, meet, and connect</li>
+    </ul>
+    <p class="text-pink-100 italic">No pressure. No forced smiles. Just two people choosing to spend time together.</p>
+  </section>
+
+  <section class="bg-[#2a0039] p-6 rounded-lg border-l-4 border-red-500 text-sm text-red-100 shadow-md relative z-10">
+    <h2 class="text-xl font-semibold mb-3">⚠️ Legal & Consent Note</h2>
+    <p>We are independent adult companions.<br>All bookings are for emotional, social, and wellness-focused companionship only. Nothing illegal or unsafe will ever be part of our sessions. Consent is mutual and sacred.</p>
+  </section>
+</div>
+ <!-- Footer -->
+    <footer class="rounded-t-4xl bg-gradient-to-br from-[#CE0058] to-[#561115] px-6 py-12 text-orange-100 md:px-20">
+      <div class="mx-auto grid max-w-7xl gap-10 md:grid-cols-3">
+        <div>
+          <h4 class="mb-3 text-lg font-semibold">Opula Nights</h4>
+          <p class="text-md text-[#f2ecec]/70">Elevating intimacy to an art form in Bangalore and beyond.</p>
+        </div>
+        <div>
+          <h4 class="mb-3 text-lg font-semibold">Quick Links</h4>
+          <ul class="space-y-2 text-md">
+            <li>
+              <a href="#" class="transition hover:text-[#2B0033]">Home</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-[#2B0033]">Profiles</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-[#2B0033]">About</a>
+            </li>
+            <li>
+              <a href="#" class="transition hover:text-[#2B0033]">Contact</a>
+            </li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="mb-3 text-lg font-semibold">For Rent Contact</h4>
+          <a href="mailto:jannatkhana247@gmail.com" class="text-lg text-[#FFF8F4]/70">Email: jannatkhana247@gmail.com</a>
+          <div class="mt-4 flex space-x-4">
+            <a href="#"><img src="https://img.icons8.com/ios-filled/25/twitterx--v1.png" alt="twitter logo" /></a>
+            <a href="#"><img src="https://img.icons8.com/fluency/25/instagram-new.png" alt="instagram logo" /></a>
+            <a href="#"><img src="https://img.icons8.com/fluency/25/facebook-new.png" alt="facebook logo" /></a>
+          </div>
+        </div>
+      </div>
+      <div class="mt-10 text-center text-xs text-[#FFF8F4]/50">© 2025 Opula Nights. All rights reserved.</div>
+      <h2 class="text-center text-5xl font-extrabold md:text-7xl">OPULA NIGHTS</h2>
+    </footer>
+
+</body>
+</html>
